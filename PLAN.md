@@ -156,7 +156,7 @@ Empty — first pass.
 ## MeshVault sell rebase subtask
 
 - [x] Rebase `cursor/meshvault-sell-961d` onto current main after #15.
-- [x] Keep the locked sentence exactly: MeshVault is the model plus the application plus compute. That is the company, the offer, and the message.
+- [x] Keep the locked sentence exactly: Kodros is the model plus the application plus compute. That is the company, the offer, and the message.
 - [x] Resolve Expo overlap by keeping #15's iOS sell; apply remaining surfaces.
 - [x] Fix lint and leave `pnpm verify:fast` green.
 - [x] Push the same branch so #16 is mergeable.
