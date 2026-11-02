@@ -1,14 +1,14 @@
-# MeshVault Bot
+# Kodros Bot
 
-MeshVault Bot is a self-hostable bot application for people who want AI bots that each keep their own thread, memory, routines, and computer. The computer is a Docker container by default or an E2B sandbox. It ships web, Electron desktop, and Expo iOS clients. It is in beta and aimed at developers who run it themselves.
+Kodros Bot is a self-hostable bot application for people who want AI bots that each keep their own thread, memory, routines, and computer. The computer is a Docker container by default or an E2B sandbox. It ships web, Electron desktop, and Expo iOS clients. It is in beta and aimed at developers who run it themselves.
 
-MeshVault is the model plus the application plus compute. That is the company, the offer, and the message.
+Kodros is the model plus the application plus compute. That is the company, the offer, and the message.
 
 > **About this fork.** This is a fork of [elie222/rakazo](https://github.com/elie222/rakazo) (Apache-2.0). Upstream is canonical for the original product and its documentation. This fork branched from upstream commit `fd445cd` and is maintained by thefiredev-cloud ([thefiredev-cloud](https://github.com/thefiredev-cloud)). Issues are disabled here. Upstream's `LICENSE`, `NOTICE`, and git history are kept; provenance is in [`UPSTREAM.md`](./UPSTREAM.md).
 >
 > What the fork changes, by area:
 >
-> - **Branding and models.** Rebrand to MeshVault, `@meshbot/*` package scopes, Qwen (DashScope) as the default model path, and the `MESHBOT_GATEWAY_*` lane for a deployment-owned OpenAI-compatible endpoint.
+> - **Branding and models.** Rebrand to Kodros, `@meshbot/*` package scopes, Qwen (DashScope) as the default model path, and the `MESHBOT_GATEWAY_*` lane for a deployment-owned OpenAI-compatible endpoint.
 > - **Agent runtime.** Hermes Agent v0.20.4 is the default runtime (`AGENT_RUNTIME=hermes`). `vendor/hermes-agent` is a sparse snapshot of Nous Research's code, mainly the Bot Mode plugin. Bot Mode is wired into the Electron desktop and ported to the Expo app.
 > - **Action gateway.** `packages/gateway` evaluates a fail-closed policy and writes an audit row (`action_audits`) before a bot acts. It follows the architecture of CopilotKit's OpenBot but shares no code with it.
 > - **Computers.** A `desktop` computer provider ("This Mac"), owner approvals for tool effects, takeover-run binding, and Rust viewer code in `native/meshbot-viewer-core`.
@@ -19,7 +19,7 @@ MeshVault is the model plus the application plus compute. That is the company, t
 
 The agent spine is **Nous Research Hermes Agent v0.20.4** with in-tree **Bot Mode** (named roster, avatars, routines, bot-to-bot), licensed MIT and recorded in [`NOTICE`](./NOTICE). The default model path is **Qwen** (DashScope or a compatible OpenAI API). OpenRouter and the rest of the Pi catalog stay available.
 
-Each bot has one thread, one computer, memory, routines, and history. A bot can also spawn more bots, each a regular peer with its own thread and computer, message another bot, or run short-lived subagents inside the current turn. The repository is the whole application and runs without a MeshVault-operated control plane.
+Each bot has one thread, one computer, memory, routines, and history. A bot can also spawn more bots, each a regular peer with its own thread and computer, message another bot, or run short-lived subagents inside the current turn. The repository is the whole application and runs without a Kodros-operated control plane.
 
 Product notes live in [`PRODUCT.md`](./PRODUCT.md). License and upstream attribution are in [`LICENSE`](./LICENSE), [`NOTICE`](./NOTICE), and [`UPSTREAM.md`](./UPSTREAM.md).
 
@@ -60,7 +60,7 @@ Edit `.env`:
 - Set `BETTER_AUTH_SECRET` and `ENCRYPTION_KEY` to long random strings before any network exposure. Placeholder values only work in local `development` / `test` runs.
 - Put your Qwen / DashScope key in `QWEN_API_KEY` or `DASHSCOPE_API_KEY` (or skip the key and paste one during onboarding). Optional: `QWEN_BASE_URL` / `DASHSCOPE_BASE_URL` for a compatible OpenAI API (default DashScope international).
 - OpenRouter still works: `OPENROUTER_API_KEY`. For deployment-owned local models, set `MESHBOT_GATEWAY_URL`, `MESHBOT_GATEWAY_KEY`, and the exact comma-separated `MESHBOT_GATEWAY_MODELS` served by that endpoint.
-- ChatGPT Plus or Pro, GitHub Copilot, or SuperGrok / X Premium: skip the key and sign in on the **Connect a model** screen. Pick **OpenAI Codex**, **GitHub Copilot**, or **xAI**, then sign in with the device code Pi shows. Claude API keys work. Claude Pro / Max login is not in the MeshVault web UI yet because Pi's Claude flow needs a localhost callback or manual code rather than a device code.
+- ChatGPT Plus or Pro, GitHub Copilot, or SuperGrok / X Premium: skip the key and sign in on the **Connect a model** screen. Pick **OpenAI Codex**, **GitHub Copilot**, or **xAI**, then sign in with the device code Pi shows. Claude API keys work. Claude Pro / Max login is not in the Kodros web UI yet because Pi's Claude flow needs a localhost callback or manual code rather than a device code.
 - Plugins use personal Composio sign-in through the fixed remote MCP endpoint.
 
 Then:
@@ -94,12 +94,12 @@ The app you open and the computer provider are separate choices. Web, Electron, 
 
 | `SANDBOX_PROVIDER` | Where agent commands run | Best fit | Isolation notes |
 | --- | --- | --- | --- |
-| `docker` (default) | A per-bot Docker container on your machine. The Electron app can switch this to This Mac without changing the env var. | Quick local setup and trusted single-machine self-hosting | Good local isolation and persistent bot homes. The supervisor controls the local Docker daemon, so keep its port private; MeshVault does this by default. |
-| `e2b` | A remote E2B sandbox | Public or multi-user deployments | Stronger separation from the MeshVault application host. Requires `E2B_API_KEY`. This Mac is not available. |
-| `desktop` | Directly on the API/worker host. Working directories under the process user's home folder are allowed. | A trusted single-user local process | Least isolated. Model-initiated shell commands run with the MeshVault process's OS permissions. Do not use it on a public or shared server. The Electron first-run "This Mac" choice uses this provider while leaving `SANDBOX_PROVIDER=docker`. |
+| `docker` (default) | A per-bot Docker container on your machine. The Electron app can switch this to This Mac without changing the env var. | Quick local setup and trusted single-machine self-hosting | Good local isolation and persistent bot homes. The supervisor controls the local Docker daemon, so keep its port private; Kodros does this by default. |
+| `e2b` | A remote E2B sandbox | Public or multi-user deployments | Stronger separation from the Kodros application host. Requires `E2B_API_KEY`. This Mac is not available. |
+| `desktop` | Directly on the API/worker host. Working directories under the process user's home folder are allowed. | A trusted single-user local process | Least isolated. Model-initiated shell commands run with the Kodros process's OS permissions. Do not use it on a public or shared server. The Electron first-run "This Mac" choice uses this provider while leaving `SANDBOX_PROVIDER=docker`. |
 | `fake` | An in-process emulator | Tests only | Does not run a real computer. |
 
-Docker remains the recommended quick start for someone running MeshVault on their own machine. E2B is the safer boundary when untrusted users or public traffic share a deployment.
+Docker remains the recommended quick start for someone running Kodros on their own machine. E2B is the safer boundary when untrusted users or public traffic share a deployment.
 
 If this Postgres was created with `prisma db push` before checked-in migrations existed, mark the baseline once:
 
@@ -115,9 +115,9 @@ The Electron shell loads the same web UI. Leave `pnpm dev` running, then:
 pnpm --filter @meshbot/desktop dev
 ```
 
-Native red / yellow / green buttons close, minimize, and zoom that window. They do nothing in the browser tab. On first launch the desktop app asks whether bots should keep using Docker or run on this Mac as you. Docker stays the default. macOS shows no permission prompt for that choice; the consent is MeshVault's.
+Native red / yellow / green buttons close, minimize, and zoom that window. They do nothing in the browser tab. On first launch the desktop app asks whether bots should keep using Docker or run on this Mac as you. Docker stays the default. macOS shows no permission prompt for that choice; the consent is Kodros's.
 
-Development defaults to `http://127.0.0.1:5173`. A packaged build has no default and asks for your server's address on first launch (HTTPS, except for loopback addresses), then remembers it. Use **MeshVault → Change Server…** to change it. `MESHBOT_WEB_URL` is the explicit startup override.
+Development defaults to `http://127.0.0.1:5173`. A packaged build has no default and asks for your server's address on first launch (HTTPS, except for loopback addresses), then remembers it. Use **Kodros → Change Server…** to change it. `MESHBOT_WEB_URL` is the explicit startup override.
 
 ### Desktop Bot Mode
 
@@ -125,10 +125,10 @@ Hermes Bot Mode is bundled in the Electron app (from [NousResearch/hermes-agent]
 
 With `pnpm --filter @meshbot/desktop dev` running:
 
-1. Choose **MeshVault → Bot Mode** (or **Open Bot Mode** on the connection screen).
+1. Choose **Kodros → Bot Mode** (or **Open Bot Mode** on the connection screen).
 2. Create an agent (`researcher`, `ops`, …) or open the default Hermes row.
 3. Click a bot to pin and open its forever Bot Chat. **Sessions** lists that bot's stored conversations.
-4. **Open MeshVault** returns to the connected MeshVault application (model + application + compute).
+4. **Open Kodros** returns to the connected Kodros application (model + application + compute).
 
 Roster state is stored in the desktop user-data directory (`bot-mode.json`, mode `0600`). The Expo/iOS client is unchanged.
 
@@ -212,7 +212,7 @@ infra/compose sandboxes
 
 ## Self-host and Cloud
 
-See `docs/self-host.md`. Cloud and self-hosted editions share the same application and contracts. This repo has no MeshVault-hosted control plane yet. A public Cloud deploy is a VPS (or E2B) plus the marketing site, not a serverless push of the chat app.
+See `docs/self-host.md`. Cloud and self-hosted editions share the same application and contracts. This repo has no Kodros-hosted control plane yet. A public Cloud deploy is a VPS (or E2B) plus the marketing site, not a serverless push of the chat app.
 
 Upstream and license records: [`UPSTREAM.md`](./UPSTREAM.md) · [`NOTICE`](./NOTICE)
 

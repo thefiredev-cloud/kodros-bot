@@ -281,7 +281,7 @@
         "PLAN.md",
         ".agents/context.json"
       ],
-      "worked": "Locked MESHVAULT_SELL: MeshVault is the model plus the application plus compute. That is the company, the offer, and the message. Copy-only on README, marketing, splash, onboarding, settings About, window titles. Expo keeps #15 surfaces via lib/sell. Leftover Grok-alternative and Private-bots pitches removed. meshbot://, providers, models, and keys unchanged.",
+      "worked": "Locked MESHVAULT_SELL: Kodros is the model plus the application plus compute. That is the company, the offer, and the message. Copy-only on README, marketing, splash, onboarding, settings About, window titles. Expo keeps #15 surfaces via lib/sell. Leftover Grok-alternative and Private-bots pitches removed. meshbot://, providers, models, and keys unchanged.",
       "failed": "Rebase onto #15 conflicted on founding, commerce, PLAN, and context.json."
     },
     {

@@ -1,6 +1,6 @@
 # Self-hosting MeshVault
 
-MeshVault is the model plus the application plus compute. That is the company, the offer, and the message.
+Kodros is the model plus the application plus compute. That is the company, the offer, and the message.
 
 The signed-in application is a long-running API, a Graphile Worker, Postgres, and a computer provider (Docker supervisor or E2B). The agent spine is Hermes Agent + Bot Mode (`AGENT_RUNTIME=hermes`). Computer actions go through MeshVault's OpenBot-shaped gateway (decide, audit, then act) and stay in this Postgres — not CopilotKit Intelligence. It is not a static site. The marketing site in `apps/www` can be hosted separately.
 
