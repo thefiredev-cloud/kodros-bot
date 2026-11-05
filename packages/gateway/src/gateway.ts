@@ -2,7 +2,7 @@
  * The only path a Bot action may take: resolve the target, decide policy,
  * write the audit row, then act or refuse and name the rule.
  *
- * Architecture from CopilotKit/openbot (MIT). MeshVault-owned implementation.
+ * Architecture from CopilotKit/openbot (MIT). Kodros-owned implementation.
  * Do not reverse-engineer Grok Bot. Do not require CopilotKit cloud license.
  */
 

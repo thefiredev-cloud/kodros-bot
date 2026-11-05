@@ -2,7 +2,6 @@ import { MESHVAULT_NAME, MESHVAULT_SELL } from "@meshbot/contracts";
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { rpc } from "../lib/rpc";
-import { CommercePanel } from "./CommerceOverlay";
 
 // Modified by thefiredev-cloud on 2026-08-13.
 
@@ -219,8 +218,8 @@ export function OnboardingPage() {
             <h1 className="text-[32px] font-medium text-[#F1F1F2]">Connect a model</h1>
             <p className="mt-2 text-[#85858A]">{MESHVAULT_SELL}</p>
             <p className="mt-2 text-[#85858A]">
-              MeshVault does not pay for model usage. Paste an API key, sign in with ChatGPT,
-              Copilot, or SuperGrok, or skip if this deployment already has a key.
+              Kodros does not pay for model usage. Paste an API key, sign in with ChatGPT, Copilot,
+              or SuperGrok, or skip if this deployment already has a key.
             </p>
             <input
               value={query}
@@ -397,9 +396,6 @@ export function OnboardingPage() {
           <div>
             <h1 className="text-[32px] font-medium text-[#F1F1F2]">You’re set.</h1>
             <p className="mt-2 text-[#85858A]">{MESHVAULT_SELL}</p>
-            <div className="mt-6">
-              <CommercePanel title="Optional before you start" compact />
-            </div>
             <button
               type="button"
               onClick={() => void createBot()}

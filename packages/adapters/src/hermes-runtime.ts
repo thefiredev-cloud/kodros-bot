@@ -45,7 +45,7 @@ export function hermesChatArgv(input: {
 
 /**
  * Mesh Bot spine: Hermes Agent + Bot Mode.
- * Live model tokens still use the MeshVault Qwen / DeepSeek / gateway catalog
+ * Live model tokens still use the Kodros Qwen / DeepSeek / gateway catalog
  * (the existing Pi client) so we never invent Nous Portal keys.
  */
 export class HermesAgentRuntime implements AgentRuntime {

@@ -1,12 +1,12 @@
-# MeshVault
+# Kodros
 
-Status: active build. Product-facing name: MeshVault.
+Status: active build. Product-facing name: Kodros.
 
 Kodros is the model plus the application plus compute. That is the company, the offer, and the message.
 
 ## Purpose
 
-This repository is the application. The agent spine is Nous Research Hermes Agent + Bot Mode. It preserves MeshVault's Windows-authoritative runtime and native companion work.
+This repository is the application. The agent spine is Nous Research Hermes Agent + Bot Mode. It preserves Kodros's Windows-authoritative runtime and native companion work.
 
 ## Product contract
 
@@ -14,7 +14,7 @@ This repository is the application. The agent spine is Nous Research Hermes Agen
 - Do not add a separate approval dashboard, approval levels, or a second policy system.
 - Keep model choice visible per bot and support cloud and local providers through explicit connections.
 - Keep SaaS access behind Composio. Do not put reusable connector credentials in the browser bundle.
-- Treat network reachability and MeshVault device pairing as separate states.
+- Treat network reachability and Kodros device pairing as separate states.
 
 ## Host boundaries
 
@@ -25,7 +25,7 @@ This repository is the application. The agent spine is Nous Research Hermes Agen
 
 ## Visual direction
 
-Quiet, compact, and operational. Use the MeshVault node mark, graphite neutrals, restrained motion, and one clear action per view. Keep a simple bot-first information architecture.
+Quiet, compact, and operational. Use the Kodros node mark, graphite neutrals, restrained motion, and one clear action per view. Keep a simple bot-first information architecture.
 
 ## Acceptance
 
@@ -33,4 +33,4 @@ The complete product is accepted only when a real phone can start a bot task, th
 
 ## Current slice
 
-This branch establishes provenance, MeshVault identity, a buildable web package, a Docker context that excludes local secrets, and a bounded 3D Brain surface. It also implements owner-scoped personal Composio MCP OAuth plus separate native pairing and Meshnet states, and the fleet gateway model lane (`MESHBOT_GATEWAY_URL`, `MESHBOT_GATEWAY_KEY`, and `MESHBOT_GATEWAY_MODELS` register an OpenAI-compatible endpoint as a provider). Proven locally 2026-08-14: signup, gateway model connect, bot creation, gateway-generated interview, Docker computer provisioning, a file written by the bot, and a thread answer from Grok through the fleet LiteLLM gateway. The live SPKI-pinned Windows Brain reader, Windows WSL computers, native packaging, real Composio sign-in, physical phone pairing, and cross-device restart acceptance remain open.
+This branch establishes provenance, Kodros identity, a buildable web package, a Docker context that excludes local secrets, and a bounded 3D Brain surface. It also implements owner-scoped personal Composio MCP OAuth plus separate native pairing and Meshnet states, and the fleet gateway model lane (`MESHBOT_GATEWAY_URL`, `MESHBOT_GATEWAY_KEY`, and `MESHBOT_GATEWAY_MODELS` register an OpenAI-compatible endpoint as a provider). Proven locally 2026-08-14: signup, gateway model connect, bot creation, gateway-generated interview, Docker computer provisioning, a file written by the bot, and a thread answer from Grok through the fleet LiteLLM gateway. The live SPKI-pinned Windows Brain reader, Windows WSL computers, native packaging, real Composio sign-in, physical phone pairing, and cross-device restart acceptance remain open.

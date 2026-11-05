@@ -225,7 +225,7 @@
         "PLAN.md",
         ".agents/context.json"
       ],
-      "worked": "POST https://meshvault.ai/api/create-checkout?offer=meshvault-skill-pack-starter returns {brand,kind,url,offer}; url is HTTPS buy.stripe.com or checkout.stripe.com. Browser CORS allowlists only meshvault.ai, so startSkillPackCheckout falls back to GET navigation of that same API (303), never a reconstructed Stripe URL. POST /api/install-lead wants name+email (+ optional company/notes); live mailer_not_configured returns contact@meshvault.ai. First-run onboarding, web/Electron Skills pack sidebar, and Expo commerce screen can start checkout or submit a lead. Mac/iPhone clients stay in-development, not released. verify:fast passed 205 tests with 19 expected skips.",
+      "worked": "Removed 2026-11-05: the skills pack purchase and POST /api/create-checkout are gone; /api/install-lead stays. Older note: POST https://meshvault.ai/api/create-checkout?offer=meshvault-skill-pack-starter returns {brand,kind,url,offer}; url is HTTPS buy.stripe.com or checkout.stripe.com. Browser CORS allowlists only meshvault.ai, so startSkillPackCheckout falls back to GET navigation of that same API (303), never a reconstructed Stripe URL. POST /api/install-lead wants name+email (+ optional company/notes); live mailer_not_configured returns contact@meshvault.ai. First-run onboarding, web/Electron Skills pack sidebar, and Expo commerce screen can start checkout or submit a lead. Mac/iPhone clients stay in-development, not released. verify:fast passed 205 tests with 19 expected skips.",
       "failed": null
     },
     {
@@ -238,7 +238,7 @@
         "PLAN.md",
         ".agents/context.json"
       ],
-      "worked": "Expo founding screen is reachable from sign-in and the inbox account menu. It states iOS is pre-release with no App Store/TestFlight download, POSTs leads to /api/install-lead, and opens only the Stripe url returned by POST /api/create-checkout?offer=meshvault-skill-pack-starter. Missing RESEND_API_KEY or STRIPE_SECRET_KEY is 503 with contact@meshvault.ai. No download button. Focused 20 commerce tests and verify:fast 214/19 passed.",
+      "worked": "Removed 2026-11-05: the skills pack purchase and POST /api/create-checkout are gone; /api/install-lead stays. Older note: Expo founding screen is reachable from sign-in and the inbox account menu. It states iOS is pre-release with no App Store/TestFlight download, POSTs leads to /api/install-lead, and opens only the Stripe url returned by POST /api/create-checkout?offer=meshvault-skill-pack-starter. Missing RESEND_API_KEY or STRIPE_SECRET_KEY is 503 with contact@meshvault.ai. No download button. Focused 20 commerce tests and verify:fast 214/19 passed.",
       "failed": null
     },
     {
@@ -372,7 +372,7 @@
     {
       "at": "2026-08-19",
       "paths": [".agents/context.json", "CHANGELOG.md", "NOTICE", "PLAN.md", "UPSTREAM.md"],
-      "worked": "Rebased cursor/hermes-bot-mode-0f98 onto origin/main after #19 (f228379). Kept vendor Hermes v0.20.4, MIT skill-improve, AGENT_RUNTIME=hermes, MeshVault sell, $49. Docs keep both #19 Electron Bot Mode attribution and #18 vendor spine. No Expo rewrite; no Electron rewrite.",
+      "worked": "Rebased cursor/hermes-bot-mode-0f98 onto origin/main after #19 (f228379). Kept vendor Hermes v0.20.4, MIT skill-improve, AGENT_RUNTIME=hermes, Kodros sell. Docs keep both #19 Electron Bot Mode attribution and #18 vendor spine. No Expo rewrite; no Electron rewrite.",
       "failed": "Conflicts only CHANGELOG, NOTICE, PLAN, UPSTREAM, context.json after #19 merged mid-rebase."
     },
     {

@@ -13,4 +13,4 @@ This directory is a sparse snapshot of the Hermes Agent spine Mesh Bot uses:
 
 The archived plugin https://github.com/NousResearch/Hermes-Bot-Mode is a reference only. Bot Mode development continues in this in-tree plugin.
 
-Do not treat this folder as a second product. MeshVault branding, Qwen / DeepSeek / `MESHBOT_GATEWAY_*`, and the $49 skills path stay in the Mesh Bot application above this vendor tree.
+Do not treat this folder as a second product. Kodros branding and Qwen / DeepSeek / `MESHBOT_GATEWAY_*` stay in the Mesh Bot application above this vendor tree.

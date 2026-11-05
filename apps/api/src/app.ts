@@ -21,7 +21,7 @@ import { MarkdownMemoryStore } from "@meshbot/memory";
 import { RPCHandler } from "@orpc/server/fetch";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
-import { handleCreateCheckout, handleInstallLead } from "./commerce.js";
+import { handleInstallLead } from "./commerce.js";
 import { type AppEnv, loadEnv } from "./env.js";
 import { createRouter } from "./router.js";
 
@@ -158,7 +158,6 @@ export async function createApp(
       credentials: true,
     }),
   );
-  app.all("/api/create-checkout", (c) => handleCreateCheckout(c.req.raw));
   app.all("/api/install-lead", (c) => handleInstallLead(c.req.raw));
   app.get("/api/connections/composio/callback", async (c) => {
     c.header("cache-control", "no-store");
@@ -168,7 +167,7 @@ export async function createApp(
       await stack.composio.completeCallback(new URL(c.req.url).searchParams);
       return c.text("Composio connected. You can close this window.");
     } catch {
-      return c.text("Composio could not connect. Return to MeshVault and try again.", 400);
+      return c.text("Composio could not connect. Return to Kodros and try again.", 400);
     }
   });
   app.on(["GET", "POST"], "/api/auth/*", async (c) => {

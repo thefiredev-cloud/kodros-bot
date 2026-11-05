@@ -1,13 +1,13 @@
 flowchart LR
   owner(["Bot owner (web, desktop, iOS)"]):::actor
-  SYSTEM["MeshVault Bot<br/>the system in this repo"]:::app
+  SYSTEM["Kodros Bot<br/>the system in this repo"]:::app
   models{{"Model providers (Qwen/DashScope, OpenRouter, ...)"}}:::ext
   composio{{"Composio (plugins)"}}:::ext
   e2b{{"E2B sandbox (optional)"}}:::ext
-  stripe{{"Checkout + install-lead endpoints"}}:::ext
+  leads{{"Install-lead endpoint"}}:::ext
   owner -->|"uses"| SYSTEM
   SYSTEM -->|"OAuth connect"| composio
-  SYSTEM -->|"checkout, lead"| stripe
+  SYSTEM -->|"install lead"| leads
   SYSTEM -->|"agent runtime calls"| models
   SYSTEM -.->|"alt provider"| e2b
   classDef actor fill:#fde68a,stroke:#b45309,color:#111827

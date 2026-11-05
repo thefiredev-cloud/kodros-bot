@@ -12,7 +12,7 @@ function isLoopback(hostname: string) {
 
 export function normalizeServerOrigin(value: string) {
   const candidate = value.trim();
-  if (!candidate) throw new Error("Enter the MeshVault server address.");
+  if (!candidate) throw new Error("Enter the Kodros server address.");
 
   let url: URL;
   try {

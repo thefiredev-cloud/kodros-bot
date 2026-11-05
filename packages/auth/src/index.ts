@@ -23,7 +23,7 @@ function newId(): string {
 
 export function createAuth(prisma: PrismaClient, env: AuthEnv) {
   return betterAuth({
-    appName: "MeshVault",
+    appName: "Kodros",
     secret: env.secret,
     baseURL: env.baseURL,
     trustedOrigins: [env.webOrigin, env.baseURL, ...(env.extraOrigins ?? [])],

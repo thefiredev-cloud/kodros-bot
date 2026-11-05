@@ -1,5 +1,5 @@
 /**
- * Local Bot Mode runtime for MeshVault desktop.
+ * Local Bot Mode runtime for Kodros desktop.
  * Uses the ported Hermes Bot Mode helpers; persists roster and sessions in userData.
  */
 

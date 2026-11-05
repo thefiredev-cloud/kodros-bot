@@ -51,7 +51,7 @@ function render(snapshot) {
     empty.className = "hint";
     empty.textContent = snapshot.sessionsWorkspace
       ? "No stored sessions yet."
-      : "Open a bot to pin its forever Bot Chat. Messages stay on this computer until you send them through MeshVault.";
+      : "Open a bot to pin its forever Bot Chat. Messages stay on this computer until you send them through Kodros.";
     threadEl.append(empty);
   }
   for (const row of rows) {

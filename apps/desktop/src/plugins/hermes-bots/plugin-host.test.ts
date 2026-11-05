@@ -4,7 +4,7 @@ import hermesBotsPlugin from "./plugin.js";
 import { HERMES_BOTS_ID } from "./types.js";
 
 describe("Hermes Bot Mode plugin contract", () => {
-  it("exports the hermes-bots plugin and registers on a MeshVault host", () => {
+  it("exports the hermes-bots plugin and registers on a Kodros host", () => {
     expect(hermesBotsPlugin.id).toBe(HERMES_BOTS_ID);
     expect(typeof hermesBotsPlugin.register).toBe("function");
 
