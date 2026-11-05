@@ -4,7 +4,7 @@ Kodros Bot is a self-hostable bot application for people who want AI bots that e
 
 Kodros is the model plus the application plus compute. That is the company, the offer, and the message.
 
-> **About this fork.** This is a fork of [elie222/rakazo](https://github.com/elie222/rakazo) (Apache-2.0). Upstream is canonical for the original product and its documentation. This fork branched from upstream commit `fd445cd` and is maintained by thefiredev-cloud ([thefiredev-cloud](https://github.com/thefiredev-cloud)). Issues are disabled here. Upstream's `LICENSE`, `NOTICE`, and git history are kept; provenance is in [`UPSTREAM.md`](./UPSTREAM.md).
+> **About this fork.** This is a fork of [elie222/rakazo](https://github.com/elie222/rakazo) (Apache-2.0). Upstream is canonical for the original product and its documentation. This fork branched from upstream commit `fd445cd` and is maintained by [thefiredev-cloud](https://github.com/thefiredev-cloud). Issues are disabled here. Upstream's `LICENSE`, `NOTICE`, and git history are kept; provenance is in [`UPSTREAM.md`](./UPSTREAM.md).
 >
 > What the fork changes, by area:
 >
@@ -13,7 +13,7 @@ Kodros is the model plus the application plus compute. That is the company, the 
 > - **Action gateway.** `packages/gateway` evaluates a fail-closed policy and writes an audit row (`action_audits`) before a bot acts. It follows the architecture of CopilotKit's OpenBot but shares no code with it.
 > - **Computers.** A `desktop` computer provider ("This Mac"), owner approvals for tool effects, takeover-run binding, and Rust viewer code in `native/meshbot-viewer-core`.
 > - **Release paths.** A signed and notarized macOS release script for the desktop app and a production iOS preflight for the Expo app.
-> - **Commerce.** An optional $49 skills pack checkout (`POST /api/create-checkout`) and a founding-install lead endpoint (`POST /api/install-lead`). Both return an error when their environment variables are unset.
+> - **Commerce.** An optional checkout endpoint (`POST /api/create-checkout`) and a founding-install lead endpoint (`POST /api/install-lead`). Both return an error when their environment variables are unset.
 >
 > Upstream has moved on since the branch point (about 1,100 commits ahead as of 2026-10-10) and ships features this fork does not have, such as the published-image installer, Daytona, CreateOS and Box computers, and Pipedream Connect. Use upstream if you want those. Notable changes here are in [`CHANGELOG.md`](./CHANGELOG.md).
 
@@ -251,3 +251,5 @@ flowchart LR
 ## License
 
 Apache-2.0, inherited from Rakazo. See [`LICENSE`](./LICENSE). Vendored Hermes Agent code is MIT; attributions are in [`NOTICE`](./NOTICE).
+
+Contact: [tanner@kodros.ai](mailto:tanner@kodros.ai). Security reports: [`SECURITY.md`](./SECURITY.md).
