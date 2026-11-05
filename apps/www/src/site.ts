@@ -8,8 +8,6 @@ export const GITHUB_API_REPO = "https://api.github.com/repos/thefiredev-cloud/me
 export const DOCS_URL =
   "https://github.com/thefiredev-cloud/meshvault-bot/blob/main/docs/self-host.md";
 export const CHANGELOG_URL = "https://github.com/thefiredev-cloud/meshvault-bot/releases";
-export const WAITLIST_HREF = "mailto:tanner@meshvault.ai?subject=MeshVault%20waitlist";
-export const SKILL_PACK_CHECKOUT_HREF =
-  "https://meshvault.ai/api/create-checkout?offer=meshvault-skill-pack-starter";
+export const WAITLIST_HREF = "mailto:tanner@kodros.ai?subject=MeshVault%20waitlist";
 export const FOUNDING_INSTALL_HREF =
-  "mailto:contact@meshvault.ai?subject=Founding%20install%20lead";
+  "mailto:tanner@kodros.ai?subject=Founding%20install%20lead";

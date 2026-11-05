@@ -2,6 +2,8 @@
 
 Kodros Bot is a self-hostable bot application for people who want AI bots that each keep their own thread, memory, routines, and computer. The computer is a Docker container by default or an E2B sandbox. It ships web, Electron desktop, and Expo iOS clients. It is in beta and aimed at developers who run it themselves.
 
+Kodros is the model plus the application plus compute. That is the company, the offer, and the message.
+
 > **About this fork.** This is a fork of [elie222/rakazo](https://github.com/elie222/rakazo) (Apache-2.0). Upstream is canonical for the original product and its documentation. This fork branched from upstream commit `fd445cd` and is maintained by [thefiredev-cloud](https://github.com/thefiredev-cloud). Issues are disabled here. Upstream's `LICENSE`, `NOTICE`, and git history are kept; provenance is in [`UPSTREAM.md`](./UPSTREAM.md).
 >
 > What the fork changes, by area:

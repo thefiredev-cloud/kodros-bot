@@ -3,42 +3,31 @@ import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import { fetchGithubStars, formatStarCount } from "../github";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { GITHUB_URL, SITE_URL } from "../site";
 
 const stars = await fetchGithubStars();
 const starsLabel = stars === null ? "Star" : formatStarCount(stars);
-const host = new URL(SITE_URL).host;
 ---
 
 <BaseLayout
-  title="Privacy · MeshVault"
-  description="Kodros is the model plus the application plus compute. That is the company, the offer, and the message."
+  title="Privacy | Kodros Bot"
+  description="How the Kodros Bot marketing site handles data."
 >
   <div class="container">
     <Header starsLabel={starsLabel} />
     <main id="main" class="privacy-copy">
       <h1>Privacy</h1>
       <p>
-        This page is for {host}, the public marketing site. The open-source product is self-hosted; we do
-        not operate your bots or see your model keys.
+        This page covers the Kodros Bot marketing site. The open-source bot is self-hosted. Kodros does not
+        run your bots or see your model keys.
       </p>
       <ul>
-        <li>The site is static. It does not set an account cookie or require sign-in.</li>
-        <li>
-          GitHub star counts are fetched at build time from the public
-          <a href={GITHUB_URL}>thefiredev-cloud/meshvault-bot</a> API.
-        </li>
-        <li>
-          “Join the waitlist” and “Request a founding install” open your mail client. If you write to us, we
-          will use that address only to follow up about MeshVault or a managed install.
-        </li>
-        <li>
-          “Buy the $49 pack” opens the public checkout API on meshvault.ai, which sends you to Stripe. That
-          purchase is optional and is not required to self-host MeshVault.
-        </li>
+        <li>The site is static. It sets no account cookie and needs no sign-in.</li>
+        <li>GitHub star counts are fetched at build time from the public GitHub API.</li>
+        <li>Waitlist and install links open your mail app. We use your address only to reply.</li>
       </ul>
       <p>
-        Questions: open an issue on <a href={GITHUB_URL}>GitHub</a>.
+        Kodros app policies: <a href="https://kodros.ai/privacy">kodros.ai/privacy</a>. Questions:
+        <a href="mailto:tanner@kodros.ai">tanner@kodros.ai</a>.
       </p>
     </main>
     <Footer />
