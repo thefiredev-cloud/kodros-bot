@@ -204,9 +204,9 @@ app.whenReady().then(() => {
   });
   ipcMain.handle("desktop.server.connect", async (event, value: unknown) => {
     assertConnectionPage(event);
-    if (typeof value !== "string") throw new Error("Enter the MeshVault server address.");
+    if (typeof value !== "string") throw new Error("Enter the Kodros server address.");
     const win = windowFrom(event);
-    if (!win) throw new Error("The MeshVault window is unavailable.");
+    if (!win) throw new Error("The Kodros window is unavailable.");
     savedOrigin = await saveServerOrigin(path.join(app.getPath("userData"), "server.json"), value);
     await loadServer(win, savedOrigin);
     return { origin: savedOrigin };
@@ -214,7 +214,7 @@ app.whenReady().then(() => {
   ipcMain.handle("desktop.botMode.open", async (event) => {
     assertBotModePage(event);
     const win = windowFrom(event);
-    if (!win) throw new Error("The MeshVault window is unavailable.");
+    if (!win) throw new Error("The Kodros window is unavailable.");
     await showBotMode(win);
     return { ok: true };
   });
@@ -288,10 +288,10 @@ app.whenReady().then(() => {
       throw new Error("Bot Mode is available only from the desktop Bot Mode screen.");
     }
     const win = windowFrom(event);
-    if (!win) throw new Error("The MeshVault window is unavailable.");
+    if (!win) throw new Error("The Kodros window is unavailable.");
     const origin = currentOrigin || savedOrigin || WEB_URL_OVERRIDE?.trim();
     if (!origin) {
-      await showConnection(win, "Connect a MeshVault server to open the application.");
+      await showConnection(win, "Connect a Kodros server to open the application.");
       return { origin: null };
     }
     await loadServer(win, origin);

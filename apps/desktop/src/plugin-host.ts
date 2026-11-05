@@ -1,5 +1,5 @@
 /**
- * MeshVault desktop plugin host. Same contract as Hermes `createPluginContext`:
+ * Kodros desktop plugin host. Same contract as Hermes `createPluginContext`:
  * a plugin default-exports `{ id, register(ctx) }` and receives scoped storage.
  */
 

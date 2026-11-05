@@ -348,7 +348,7 @@ export class PersistentComposioOAuthProvider implements OAuthClientProvider {
 
   get clientMetadata(): OAuthClientMetadata {
     return {
-      client_name: "MeshVault",
+      client_name: "Kodros",
       redirect_uris: [this.callbackUrl],
       grant_types: ["authorization_code", "refresh_token"],
       response_types: ["code"],

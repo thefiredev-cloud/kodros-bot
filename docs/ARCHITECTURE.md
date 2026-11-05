@@ -1,4 +1,4 @@
-# MeshVault Bot: architecture
+# Kodros Bot: architecture
 
 <!-- arch-kit:generated -->
 
@@ -7,7 +7,7 @@
 
 ## 1. Purpose
 
-MeshVault Bot is a self-hostable bot application, a fork of elie222/rakazo. Each bot has one conversation thread, memory, routines and its own computer, which is a Docker container by default. A Hono API with oRPC and Better Auth serves web, Electron desktop and Expo iOS clients. A Graphile Worker process wakes bots for routines and queued runs. A sandbox supervisor creates and drives the per-bot computers through the Docker socket. An action gateway checks a fail-closed policy and writes an audit row before a bot acts. The agent runtime is Hermes Agent by default in the README; the shipped compose file sets `AGENT_RUNTIME: pi` for the API and worker.
+Kodros Bot is a self-hostable bot application, a fork of elie222/rakazo. Each bot has one conversation thread, memory, routines and its own computer, which is a Docker container by default. A Hono API with oRPC and Better Auth serves web, Electron desktop and Expo iOS clients. A Graphile Worker process wakes bots for routines and queued runs. A sandbox supervisor creates and drives the per-bot computers through the Docker socket. An action gateway checks a fail-closed policy and writes an audit row before a bot acts. The agent runtime is Hermes Agent by default in the README; the shipped compose file sets `AGENT_RUNTIME: pi` for the API and worker.
 
 ## 2. Whiteboard view
 
@@ -48,14 +48,14 @@ Who and what touches the system from outside.
 ```mermaid
 flowchart LR
   owner(["Bot owner (web, desktop, iOS)"]):::actor
-  SYSTEM["MeshVault Bot<br/>the system in this repo"]:::app
+  SYSTEM["Kodros Bot<br/>the system in this repo"]:::app
   models{{"Model providers (Qwen/DashScope, OpenRouter, ...)"}}:::ext
   composio{{"Composio (plugins)"}}:::ext
   e2b{{"E2B sandbox (optional)"}}:::ext
-  stripe{{"Checkout + install-lead endpoints"}}:::ext
+  leads{{"Install-lead endpoint"}}:::ext
   owner -->|"uses"| SYSTEM
   SYSTEM -->|"OAuth connect"| composio
-  SYSTEM -->|"checkout, lead"| stripe
+  SYSTEM -->|"install lead"| leads
   SYSTEM -->|"agent runtime calls"| models
   SYSTEM -.->|"alt provider"| e2b
   classDef actor fill:#fde68a,stroke:#b45309,color:#111827
@@ -75,8 +75,8 @@ flowchart TB
   models{{"Model providers (Qwen/DashScope, OpenRouter, ...)"}}:::ext
   composio{{"Composio (plugins)"}}:::ext
   e2b{{"E2B sandbox (optional)"}}:::ext
-  stripe{{"Checkout + install-lead endpoints"}}:::ext
-  subgraph SYSTEM["MeshVault Bot"]
+  leads{{"Install-lead endpoint"}}:::ext
+  subgraph SYSTEM["Kodros Bot"]
     clients["Web, Electron, Expo clients<br/>React 19 + Vite, Electron, Expo"]:::app
     api["API<br/>Hono + oRPC, :3100"]:::app
     auth["Better Auth<br/>session cookie or bearer"]:::app
@@ -96,7 +96,7 @@ flowchart TB
   api -->|"agent homes"| data
   api -->|"SANDBOX_SUPERVISOR_URL"| supervisor
   api -->|"OAuth connect"| composio
-  api -->|"checkout, lead"| stripe
+  api -->|"install lead"| leads
   worker -->|"queue + runs"| db
   worker -->|"act"| gateway
   gateway -->|"allowed computer actions"| supervisor
@@ -118,7 +118,7 @@ Hi-res: [SVG](architecture/containers.svg) · [PNG 3x](architecture/containers@3
 | Container | Kind | Tech | What it does | Evidence |
 |---|---|---|---|---|
 | Web, Electron, Expo clients | app | React 19 + Vite, Electron, Expo | Three clients of the same API. The web app proxies to the API on :5173. | [`README.md#L93`](../README.md#L93), [`infra/compose/docker-compose.yml#L87-L98`](../infra/compose/docker-compose.yml#L87-L98) |
-| API | app | Hono + oRPC, :3100 | Auth routes, /rpc behind a session and membership check, /health, checkout and install-lead endpoints. | [`apps/api/src/app.ts#L150-L193`](../apps/api/src/app.ts#L150-L193), [`infra/compose/docker-compose.yml#L45-L65`](../infra/compose/docker-compose.yml#L45-L65) |
+| API | app | Hono + oRPC, :3100 | Auth routes, /rpc behind a session and membership check, /health, and the install-lead endpoint. | [`apps/api/src/app.ts#L150-L193`](../apps/api/src/app.ts#L150-L193), [`infra/compose/docker-compose.yml#L45-L65`](../infra/compose/docker-compose.yml#L45-L65) |
 | Better Auth | app | session cookie or bearer | Sign-in, signup allowlist, blocked auth paths. Bearer tokens are mapped to the session cookie. | [`apps/api/src/app.ts#L55-L60`](../apps/api/src/app.ts#L55-L60), [`apps/api/src/app.ts#L174-L180`](../apps/api/src/app.ts#L174-L180), [`apps/api/src/app.ts#L239-L243`](../apps/api/src/app.ts#L239-L243) |
 | Worker | job | Graphile Worker | Handles run.continue, routine.wakeup and computer.sleep; recovers queued runs every 5 s. | [`apps/worker/src/index.ts#L68-L104`](../apps/worker/src/index.ts#L68-L104) |
 | Action gateway | app | packages/gateway | Fail-closed policy (deny before allow, empty policy permits nothing); writes an audit event for allowed, refused and failed actions. | [`packages/gateway/src/policy.ts#L1-L5`](../packages/gateway/src/policy.ts#L1-L5), [`packages/gateway/src/gateway.ts#L68-L71`](../packages/gateway/src/gateway.ts#L68-L71), [`packages/gateway/src/gateway.ts#L131-L151`](../packages/gateway/src/gateway.ts#L131-L151) |
@@ -304,7 +304,7 @@ Every path below exists at the pinned commit; links are relative to `docs/`.
 
 | Path | Why it matters |
 |---|---|
-| [`apps/api/src/app.ts#L150-L193`](../apps/api/src/app.ts#L150-L193) | API: CORS, checkout, Composio callback, auth, /rpc session gate, /health. |
+| [`apps/api/src/app.ts#L150-L193`](../apps/api/src/app.ts#L150-L193) | API: CORS, install-lead, Composio callback, auth, /rpc session gate, /health. |
 | [`apps/worker/src/index.ts#L68-L104`](../apps/worker/src/index.ts#L68-L104) | Worker: Graphile handlers and queued-run recovery. |
 | [`packages/gateway/src/policy.ts`](../packages/gateway/src/policy.ts) | Fail-closed policy engine. |
 | [`packages/gateway/src/gateway.ts#L68-L151`](../packages/gateway/src/gateway.ts#L68-L151) | Gateway act() and audit events. |
@@ -318,7 +318,7 @@ Collected mechanically by the kit (not hand-edited):
 
 - entry points: `start`, `dev`, `test`, `@meshbot/desktop`, `dev`, `build`
 - CI: `.github/workflows/ci.yml`
-- external hosts seen in source: `github.com`, `meshvault.ai`, `api.stripe.com`, `api.resend.com`, `api.github.com`, `biomejs.dev`
+- external hosts seen in source: `github.com`, `meshvault.ai`, `api.resend.com`, `api.github.com`, `biomejs.dev`
 
 Graphify (local AST, no LLM) read this repo: 3806 nodes, 7153 edges, 218 communities. Most connected: `AdapterContext` (138), `scripts` (65), `ComputerRef` (63), `ViewerError` (50), `SandboxProvider` (32).
 

@@ -3,8 +3,8 @@ flowchart TB
   models{{"Model providers (Qwen/DashScope, OpenRouter, ...)"}}:::ext
   composio{{"Composio (plugins)"}}:::ext
   e2b{{"E2B sandbox (optional)"}}:::ext
-  stripe{{"Checkout + install-lead endpoints"}}:::ext
-  subgraph SYSTEM["MeshVault Bot"]
+  leads{{"Install-lead endpoint"}}:::ext
+  subgraph SYSTEM["Kodros Bot"]
     clients["Web, Electron, Expo clients<br/>React 19 + Vite, Electron, Expo"]:::app
     api["API<br/>Hono + oRPC, :3100"]:::app
     auth["Better Auth<br/>session cookie or bearer"]:::app
@@ -24,7 +24,7 @@ flowchart TB
   api -->|"agent homes"| data
   api -->|"SANDBOX_SUPERVISOR_URL"| supervisor
   api -->|"OAuth connect"| composio
-  api -->|"checkout, lead"| stripe
+  api -->|"install lead"| leads
   worker -->|"queue + runs"| db
   worker -->|"act"| gateway
   gateway -->|"allowed computer actions"| supervisor

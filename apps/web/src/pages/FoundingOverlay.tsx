@@ -3,8 +3,6 @@ import {
   foundingInstallMailto,
   MESHVAULT_CONTACT_EMAIL,
   MESHVAULT_SELL,
-  SKILL_PACK_PRICE_USD,
-  startSkillPackCheckout,
   submitFoundingInstallLead,
 } from "@meshbot/contracts";
 import { useEffect, useRef, useState } from "react";
@@ -13,14 +11,7 @@ function openExternal(url: string) {
   window.open(url, "_blank", "noopener,noreferrer");
 }
 
-export function CommercePanel({
-  title = "Optional extras",
-  compact = false,
-}: {
-  title?: string;
-  compact?: boolean;
-}) {
-  const [checkoutPending, setCheckoutPending] = useState(false);
+export function FoundingPanel() {
   const [leadPending, setLeadPending] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [leadStatus, setLeadStatus] = useState<string | null>(null);
@@ -28,22 +19,6 @@ export function CommercePanel({
   const [email, setEmail] = useState("");
   const [company, setCompany] = useState("");
   const [notes, setNotes] = useState("");
-
-  async function buyPack() {
-    setError(null);
-    setCheckoutPending(true);
-    try {
-      await startSkillPackCheckout(openExternal, fetch);
-    } catch (err) {
-      setError(
-        err instanceof CommerceError
-          ? err.message
-          : "Could not start checkout. No charge was attempted.",
-      );
-    } finally {
-      setCheckoutPending(false);
-    }
-  }
 
   async function submitLead() {
     setError(null);
@@ -65,33 +40,15 @@ export function CommercePanel({
   }
 
   return (
-    <div className={compact ? "space-y-5" : "space-y-6"}>
+    <div className="space-y-6">
       <div>
-        <h2 className="text-[22px] font-medium text-[#F1F1F2]">{title}</h2>
+        <h2 className="text-[22px] font-medium text-[#F1F1F2]">Founding install</h2>
         <p className="mt-2 text-[14px] leading-relaxed text-[#85858A]">{MESHVAULT_SELL}</p>
         <p className="mt-2 text-[14px] leading-relaxed text-[#85858A]">
-          The application stays Apache-2.0 and self-hosted. These are optional purchases — not
-          seats, not a subscription, and not required to run the repo. Native Mac and iPhone clients
-          are in development and are not released.
+          The application stays Apache-2.0 and self-hosted. A founding install is optional and not
+          required to run the repo. Native Mac and iPhone clients are in development and are not
+          released.
         </p>
-      </div>
-
-      <div className="rounded-[16px] border border-[#26262A] bg-[#141416] px-4 py-4">
-        <div className="text-[15.5px] font-medium text-[#ECECEE]">
-          Agent Skills Starter Pack · ${SKILL_PACK_PRICE_USD}
-        </div>
-        <p className="mt-1.5 text-[13.5px] leading-relaxed text-[#7A7A80]">
-          One-time Markdown skills, runbooks, and examples. Checkout opens Stripe; you complete
-          payment yourself. Delivery is a signed download link by email.
-        </p>
-        <button
-          type="button"
-          disabled={checkoutPending}
-          onClick={() => void buyPack()}
-          className="mt-3 rounded-[11px] bg-[#F1F1EF] px-4 py-2 text-[14px] text-[#17171A] disabled:opacity-40"
-        >
-          {checkoutPending ? "Starting checkout…" : `Buy the $${SKILL_PACK_PRICE_USD} pack`}
-        </button>
       </div>
 
       <form
@@ -101,7 +58,7 @@ export function CommercePanel({
           void submitLead();
         }}
       >
-        <div className="text-[15.5px] font-medium text-[#ECECEE]">Founding install</div>
+        <div className="text-[15.5px] font-medium text-[#ECECEE]">Managed install</div>
         <p className="mt-1.5 text-[13.5px] leading-relaxed text-[#7A7A80]">
           Managed install on hardware you own, quoted after a short audit. The runtime stays yours.
           If the form cannot send, it falls back to {MESHVAULT_CONTACT_EMAIL}.
@@ -160,7 +117,7 @@ export function CommercePanel({
   );
 }
 
-export function CommerceOverlay({ onClose }: { onClose: () => void }) {
+export function FoundingOverlay({ onClose }: { onClose: () => void }) {
   const closeButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
@@ -177,12 +134,12 @@ export function CommerceOverlay({ onClose }: { onClose: () => void }) {
       <div
         role="dialog"
         aria-modal="true"
-        aria-labelledby="commerce-title"
+        aria-labelledby="founding-title"
         className="flex w-[560px] max-w-full flex-col overflow-hidden rounded-[26px] border border-[#232326] bg-[#101012] shadow-[0_40px_90px_rgba(0,0,0,.55)]"
       >
         <div className="flex items-start justify-between px-6 pt-6">
-          <div id="commerce-title" className="sr-only">
-            Optional extras
+          <div id="founding-title" className="sr-only">
+            Founding install
           </div>
           <button
             type="button"
@@ -195,7 +152,7 @@ export function CommerceOverlay({ onClose }: { onClose: () => void }) {
           </button>
         </div>
         <div className="rk-scroll overflow-y-auto px-6 pb-6">
-          <CommercePanel />
+          <FoundingPanel />
         </div>
       </div>
     </div>

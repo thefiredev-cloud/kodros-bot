@@ -1,8 +1,8 @@
-# Self-hosting MeshVault
+# Self-hosting Kodros
 
 Kodros is the model plus the application plus compute. That is the company, the offer, and the message.
 
-The signed-in application is a long-running API, a Graphile Worker, Postgres, and a computer provider (Docker supervisor or E2B). The agent spine is Hermes Agent + Bot Mode (`AGENT_RUNTIME=hermes`). Computer actions go through MeshVault's OpenBot-shaped gateway (decide, audit, then act) and stay in this Postgres — not CopilotKit Intelligence. It is not a static site. The marketing site in `apps/www` can be hosted separately.
+The signed-in application is a long-running API, a Graphile Worker, Postgres, and a computer provider (Docker supervisor or E2B). The agent spine is Hermes Agent + Bot Mode (`AGENT_RUNTIME=hermes`). Computer actions go through Kodros's OpenBot-shaped gateway (decide, audit, then act) and stay in this Postgres — not CopilotKit Intelligence. It is not a static site. The marketing site in `apps/www` can be hosted separately.
 
 Desktop is Electron. Mobile is the existing Expo iOS app. License and provenance are recorded in `LICENSE`, `NOTICE`, and `UPSTREAM.md`.
 
@@ -12,7 +12,7 @@ Same as the README quick start: `.env` from `.env.example`, Postgres via Compose
 
 ## Docker Compose (single machine)
 
-1. Copy `.env.example` to `.env` and set `BETTER_AUTH_SECRET` and `ENCRYPTION_KEY` to long random strings. MeshVault refuses placeholder or missing secrets outside `development` / `test` (or when `MESHBOT_ALLOW_DEV_SECRETS=1` is set).
+1. Copy `.env.example` to `.env` and set `BETTER_AUTH_SECRET` and `ENCRYPTION_KEY` to long random strings. Kodros refuses placeholder or missing secrets outside `development` / `test` (or when `MESHBOT_ALLOW_DEV_SECRETS=1` is set).
 2. Set `QWEN_API_KEY` or `DASHSCOPE_API_KEY` for the default Qwen path. Optional: `QWEN_BASE_URL` / `DASHSCOPE_BASE_URL` for a compatible OpenAI API. `OPENROUTER_API_KEY` still works. Deployment-owned local models use `MESHBOT_GATEWAY_URL`, `MESHBOT_GATEWAY_KEY`, and an exact `MESHBOT_GATEWAY_MODELS` list. Plugins use personal Composio sign-in and do not need a project API key.
 3. Build the computer image: `pnpm sandbox:build` (Compose also builds it via the `computer` service).
 4. `docker compose -f infra/compose/docker-compose.yml up --build`
@@ -59,7 +59,7 @@ Do not commit `.env`. Never put Qwen / DashScope keys, OpenRouter keys, Composio
 The Electron desktop app is a client of the same API. Docker and E2B still apply. On first launch, Electron asks the deployment owner whether bots should keep using Docker or run on this Mac as you. `SANDBOX_PROVIDER=desktop` is a separate, explicit provider that always runs commands on the service host.
 
 - **Docker** is the default for local use and the quickest self-hosted setup. Each bot gets a container and persistent home. Keep the supervisor private, as the included Compose file does. A public single-machine Docker deployment still shares one Docker host between its bot containers.
-- **E2B** runs bot computers away from the MeshVault host and is the recommended choice for public or multi-user production deployments.
+- **E2B** runs bot computers away from the Kodros host and is the recommended choice for public or multi-user production deployments.
 - **Desktop provider** / **This Mac** runs commands on the API/worker host. Docker stays the default. The Electron app asks once; if you choose This Mac, bots can use working directories under your home folder. Do not enable it on a public or shared service. macOS does not show its own permission dialog for this.
 - **Fake** is only an emulator for verification.
 
@@ -81,7 +81,7 @@ This dumps Postgres (`pg_dump`) and archives `data/` into `backups/<stamp>/`.
 
 Pull the new source, run `pnpm --filter @meshbot/db migrate`, then restart API and worker. Product contracts stay compatible across cloud and self-hosted.
 
-## What “MeshVault Cloud” still needs
+## What “Kodros Cloud” still needs
 
 `apps/www` (Astro, `output: "static"`, `site: https://meshvault.ai`) can go live today on Vercel, Cloudflare Pages, or any static host. The waitlist link is `mailto:tanner@meshvault.ai`. That is the marketing site, not the product.
 
@@ -98,7 +98,7 @@ To run a hosted product (same codebase):
 7. Set public HTTPS `WEB_ORIGIN` / `BETTER_AUTH_URL` / `API_URL`, secrets, and a Qwen / DashScope (or OpenRouter / other Pi) deployment key if you want to skip per-user model keys.
 8. Put the web app behind the same origin as `/api` and `/rpc` (Vite preview proxy, or a reverse proxy). Docker noVNC connections use short-lived signed `/novnc/*` capabilities; do not replace that route with an unrestricted port proxy.
 9. Deploy `apps/www` to `meshvault.ai` and point `app.meshvault.ai` (or similar) at the product origin.
-10. Turn on `SIGNUP_ALLOWLIST` until you want open registration. There is no MeshVault-managed model billing in version 1 — users bring keys.
+10. Turn on `SIGNUP_ALLOWLIST` until you want open registration. There is no Kodros-managed model billing in version 1 — users bring keys.
 
 Expo / desktop installers are clients of that origin (`EXPO_PUBLIC_API_URL`, `MESHBOT_WEB_URL`). They are not a Cloud control plane.
 

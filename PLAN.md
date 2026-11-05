@@ -117,43 +117,36 @@ Empty — first pass.
 - [x] Make release verification search only the signed-output directory.
 - [x] Pass the release self-check and repository gates.
 
-## Skills pack revenue path subtask
+## iOS pre-release founding-install subtask
 
-- [x] Add checkout and founding-install helpers that POST to meshvault.ai and never invent a Stripe URL.
-- [x] Surface a first-run and in-app CTA in the web/Electron UI so a user can start the $49 pack checkout or submit a lead.
-- [x] Add the same path on Expo without claiming Mac or iOS clients are released.
-- [x] Keep Apache-2.0 / self-host copy honest; add tests for the network helpers; leave verify:fast green.
-
-## iOS pre-release money / founding-install subtask
-
-- [x] Add `POST /api/create-checkout` and `POST /api/install-lead` with the meshvault-scroll #17 contract.
-- [x] Fail closed with 503 when Stripe or Resend env is missing; never invent a checkout URL or inbox.
-- [x] Add a visible Expo founding path: honest pre-release copy, lead form, Buy the $49 pack.
+- [x] Add `POST /api/install-lead` with the meshvault-scroll #17 contract.
+- [x] Fail closed with 503 when Resend env is missing; never invent an inbox.
+- [x] Add a visible Expo founding path: honest pre-release copy and a lead form.
 - [x] Do not add, enable, or label an App Store / TestFlight / Download on iPhone control.
-- [x] Prove the form POST, mocked checkout open, and absent download state with tests.
+- [x] Prove the form POST and absent download state with tests.
 
 ## iOS founding PR rebase / check-green subtask
 
 - [x] Rebase `cursor/ios-founding-checkout-2e10` onto current main after #13.
-- [x] Annotate `handleCreateCheckout` and `handleInstallLead` so the public return type is `Promise<Response>`.
+- [x] Annotate `handleInstallLead` so the public return type is `Promise<Response>`.
 - [x] Push the same PR #14 and leave `pnpm check` green.
 
-## Expo iOS locked MeshVault sell subtask
+## Expo iOS locked Kodros sell subtask
 
-- [x] Keep one local mobile string with the exact locked MeshVault sell; do not paraphrase.
-- [x] Show that string on Expo founding, commerce, and existing mobile checkout/footer surfaces only.
-- [x] Do not pitch MeshVault as only a model, only an app, or only compute; do not invent other copy, Rakazo leftovers, or store IDs.
+- [x] Keep one local mobile string with the exact locked Kodros sell; do not paraphrase.
+- [x] Show that string on Expo founding and existing mobile footer surfaces only.
+- [x] Do not pitch Kodros as only a model, only an app, or only compute; do not invent other copy, Rakazo leftovers, or store IDs.
 - [x] Leave Electron/desktop/www untouched; prove the string and pass `pnpm verify:fast`.
 
-## MeshVault sell copy subtask
+## Kodros sell copy subtask
 
-- [x] Lock one MeshVault sell string: the model plus the application plus compute, sold as one product.
+- [x] Lock one Kodros sell string: the model plus the application plus compute, sold as one product.
 - [x] Put that wording on README, marketing, splash, onboarding, about, settings, and window titles.
 - [x] Replace leftover generic, Grok-alternative, and Rakazo product pitches on user-facing surfaces.
 - [x] Leave providers, models, keys, schemes, and runtime behavior unchanged.
 - [x] Pass `pnpm verify:fast` and open a PR.
 
-## MeshVault sell rebase subtask
+## Kodros sell rebase subtask
 
 - [x] Rebase `cursor/meshvault-sell-961d` onto current main after #15.
 - [x] Keep the locked sentence exactly: Kodros is the model plus the application plus compute. That is the company, the offer, and the message.
@@ -197,14 +190,14 @@ Empty — first pass.
 - [x] Take MIT skill-improve pieces from hermes-agent-self-evolution; skip AGPL Darwinian code.
 - [x] Make Hermes the product agent spine (`AGENT_RUNTIME=hermes`); keep Pi as `AGENT_RUNTIME=pi` and scripted for tests.
 - [x] Ship Bot Mode in Mesh Bot: named roster, routines namespace, bot-to-bot `message_bot` with Hermes attribution.
-- [x] Keep MeshVault sell, Qwen/DeepSeek/gateway, $49 checkout, Expo, and Electron.
+- [x] Keep Kodros sell, Qwen/DeepSeek/gateway, Expo, and Electron.
 - [x] Attribute Nous Research / hermes-agent (MIT) in NOTICE, UPSTREAM, and README.
 - [x] Pass `pnpm verify:fast` and open one PR to main titled Mesh Bot on Hermes + Bot Mode.
 
 ## Hermes spine rebase after #17 subtask
 
 - [x] Rebase `cursor/hermes-bot-mode-0f98` onto current main after Expo iOS Bot Mode (#17).
-- [x] Keep vendor/hermes-agent v0.20.4, MIT skill-improve, AGENT_RUNTIME=hermes, MeshVault sell, $49 checkout, NOTICE/UPSTREAM.
+- [x] Keep vendor/hermes-agent v0.20.4, MIT skill-improve, AGENT_RUNTIME=hermes, Kodros sell, NOTICE/UPSTREAM.
 - [x] Do not rewrite Expo surfaces from #17 unless a conflict forces a merge.
 - [x] Do not touch Electron unless a conflict forces a clean resolve.
 - [x] Push the same branch so #18 is mergeable and CI is green.
@@ -212,17 +205,24 @@ Empty — first pass.
 ## Hermes spine rebase after #19 subtask
 
 - [x] Rebase `cursor/hermes-bot-mode-0f98` onto current main after Electron Bot Mode (#19).
-- [x] Keep vendor Hermes v0.20.4, MIT skill-improve, AGENT_RUNTIME=hermes, MeshVault sell, $49, NOTICE/UPSTREAM.
+- [x] Keep vendor Hermes v0.20.4, MIT skill-improve, AGENT_RUNTIME=hermes, Kodros sell, NOTICE/UPSTREAM.
 - [x] Keep #19 Electron Bot Mode surfaces; do not rewrite Expo.
 - [x] Push the same branch so #18 is mergeable and CI is green.
 
 ## OpenBot gateway spine subtask
 
-Lock CopilotKit/openbot (MIT, AG-UI) as MeshVault Bot architecture. Outcome, not a clone. Do not reverse-engineer or clone Grok Bot. Do not require CopilotKit Intelligence / `COPILOTKIT_LICENSE_TOKEN`.
+Lock CopilotKit/openbot (MIT, AG-UI) as Kodros Bot architecture. Outcome, not a clone. Do not reverse-engineer or clone Grok Bot. Do not require CopilotKit Intelligence / `COPILOTKIT_LICENSE_TOKEN`.
 
 - [x] Record OpenBot as the architecture in `AGENTS.md`: gateway decide-then-act, per-bot computer, AG-UI, fail-closed policy, audit, take-the-wheel.
 - [x] Add `@meshbot/gateway`: resolve target, evaluate fail-closed policy, write audit, then act or refuse and name the rule.
-- [x] Persist permitted / refused / failed rows in MeshVault Postgres (own store, not CopilotKit cloud).
+- [x] Persist permitted / refused / failed rows in Kodros Postgres (own store, not CopilotKit cloud).
 - [x] Put the existing executor `shell` computer action on that path. Electron/Hermes already call tools through the API executor — no desktop rewrite.
-- [x] Attribute OpenBot MIT in `UPSTREAM.md` / `NOTICE`. Keep MeshVault branding, Electron, Expo, Hermes.
+- [x] Attribute OpenBot MIT in `UPSTREAM.md` / `NOTICE`. Keep Kodros branding, Electron, Expo, Hermes.
 - [x] Pass `pnpm verify:fast`, lint, and check. Open a PR off current main.
+
+## Remove skills pack purchase and rebrand to Kodros subtask
+
+- [x] Remove the skills pack buy screens, buttons, checkout helpers, `POST /api/create-checkout`, and Stripe env keys.
+- [x] Keep the founding-install lead form and `POST /api/install-lead`.
+- [x] Rename user-facing MeshVault text to Kodros; keep identifiers (schemes, bundle IDs, package names, hosts).
+- [x] Update `brand-name.test.ts` to assert the Kodros wording and the absence of the purchase.

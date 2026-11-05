@@ -13,7 +13,7 @@ Kodros is the model plus the application plus compute. That is the company, the 
 > - **Action gateway.** `packages/gateway` evaluates a fail-closed policy and writes an audit row (`action_audits`) before a bot acts. It follows the architecture of CopilotKit's OpenBot but shares no code with it.
 > - **Computers.** A `desktop` computer provider ("This Mac"), owner approvals for tool effects, takeover-run binding, and Rust viewer code in `native/meshbot-viewer-core`.
 > - **Release paths.** A signed and notarized macOS release script for the desktop app and a production iOS preflight for the Expo app.
-> - **Commerce.** An optional checkout endpoint (`POST /api/create-checkout`) and a founding-install lead endpoint (`POST /api/install-lead`). Both return an error when their environment variables are unset.
+> - **Commerce.** A founding-install lead endpoint (`POST /api/install-lead`). It returns an error when `RESEND_API_KEY` is unset.
 >
 > Upstream has moved on since the branch point (about 1,100 commits ahead as of 2026-10-10) and ships features this fork does not have, such as the published-image installer, Daytona, CreateOS and Box computers, and Pipedream Connect. Use upstream if you want those. Notable changes here are in [`CHANGELOG.md`](./CHANGELOG.md).
 
@@ -158,7 +158,7 @@ The preflight names every missing field before TypeScript compilation or packagi
 
 ```bash
 MESH_RELEASE_DIR="apps/desktop/out/release"
-MESH_APP="$(find "$MESH_RELEASE_DIR" -maxdepth 2 -type d -name 'MeshVault.app' -print -quit)"
+MESH_APP="$(find "$MESH_RELEASE_DIR" -maxdepth 2 -type d -name 'Kodros.app' -print -quit)"
 test -n "$MESH_APP"
 codesign --verify --deep --strict --verbose=2 "$MESH_APP"
 codesign -dvv "$MESH_APP" 2>&1 | grep -F 'Authority=Developer ID Application:'

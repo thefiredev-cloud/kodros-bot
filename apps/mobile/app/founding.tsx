@@ -1,7 +1,6 @@
 import { useState } from "react";
 import {
   KeyboardAvoidingView,
-  Linking,
   Platform,
   Pressable,
   ScrollView,
@@ -10,7 +9,7 @@ import {
   View,
 } from "react-native";
 import { currentApiBase } from "../lib/api";
-import { startCheckout, submitInstallLead } from "../lib/commerce";
+import { submitInstallLead } from "../lib/commerce";
 import { MESHVAULT_SELL } from "../lib/sell";
 
 export default function Founding() {
@@ -20,35 +19,13 @@ export default function Founding() {
   const [notes, setNotes] = useState("");
   const [leadStatus, setLeadStatus] = useState<string | null>(null);
   const [leadError, setLeadError] = useState(false);
-  const [checkoutStatus, setCheckoutStatus] = useState<string | null>(null);
-  const [checkoutError, setCheckoutError] = useState(false);
   const [leadPending, setLeadPending] = useState(false);
-  const [checkoutPending, setCheckoutPending] = useState(false);
-
-  async function buy() {
-    if (checkoutPending) return;
-    setCheckoutPending(true);
-    setCheckoutError(false);
-    setCheckoutStatus("Connecting to Stripe. No payment has been submitted yet.");
-    try {
-      await startCheckout(currentApiBase(), {
-        openUrl: (url) => Linking.openURL(url),
-      });
-    } catch (err) {
-      setCheckoutError(true);
-      setCheckoutStatus(
-        err instanceof Error ? err.message : "Checkout could not start. No charge was attempted.",
-      );
-    } finally {
-      setCheckoutPending(false);
-    }
-  }
 
   async function submitLead() {
     if (leadPending) return;
     setLeadPending(true);
     setLeadError(false);
-    setLeadStatus("Sending to MeshVault.");
+    setLeadStatus("Sending to Kodros.");
     try {
       await submitInstallLead(currentApiBase(), {
         name: name.trim(),
@@ -60,11 +37,11 @@ export default function Founding() {
       setEmail("");
       setCompany("");
       setNotes("");
-      setLeadStatus("Sent. A person at contact@meshvault.ai will reply.");
+      setLeadStatus("Sent. A person at tanner@kodros.ai will reply.");
     } catch (err) {
       setLeadError(true);
       setLeadStatus(
-        err instanceof Error ? err.message : "The form could not send. Email contact@meshvault.ai.",
+        err instanceof Error ? err.message : "The form could not send. Email tanner@kodros.ai.",
       );
     } finally {
       setLeadPending(false);
@@ -81,7 +58,7 @@ export default function Founding() {
         keyboardShouldPersistTaps="handled"
         keyboardDismissMode="on-drag"
       >
-        <Text style={{ color: "#1B1B1E", fontSize: 28, fontWeight: "500" }}>MeshVault</Text>
+        <Text style={{ color: "#1B1B1E", fontSize: 28, fontWeight: "500" }}>Kodros</Text>
         <Text style={{ color: "#1B1B1E", marginTop: 10, fontSize: 16, lineHeight: 22 }}>
           {MESHVAULT_SELL}
         </Text>
@@ -90,49 +67,10 @@ export default function Founding() {
         </Text>
 
         <Text style={{ color: "#1B1B1E", fontSize: 20, fontWeight: "600", marginTop: 32 }}>
-          Agent Skills Starter Pack, $49
-        </Text>
-        <Text style={{ color: "#6E6E68", marginTop: 8, fontSize: 15, lineHeight: 22 }}>
-          One payment. Digital delivery by email after Stripe confirms payment. This is not an
-          iPhone app.
-        </Text>
-        <Pressable
-          accessibilityRole="button"
-          accessibilityLabel="Buy the $49 pack"
-          onPress={() => void buy()}
-          disabled={checkoutPending}
-          style={{
-            marginTop: 16,
-            backgroundColor: "#121215",
-            borderRadius: 13,
-            padding: 18,
-            alignItems: "center",
-            opacity: checkoutPending ? 0.5 : 1,
-          }}
-        >
-          <Text style={{ color: "#FBFBF9", fontSize: 17 }}>
-            {checkoutPending ? "Opening secure checkout…" : "Buy the $49 pack"}
-          </Text>
-        </Pressable>
-        {checkoutStatus ? (
-          <Text
-            style={{
-              color: checkoutError ? "#C94244" : "#6E6E68",
-              marginTop: 12,
-              fontSize: 14,
-              lineHeight: 20,
-            }}
-          >
-            {checkoutStatus}
-          </Text>
-        ) : null}
-
-        <Text style={{ color: "#1B1B1E", fontSize: 20, fontWeight: "600", marginTop: 36 }}>
           Founding install
         </Text>
         <Text style={{ color: "#6E6E68", marginTop: 8, fontSize: 15, lineHeight: 22 }}>
-          Request a founding or managed install. The form emails contact@meshvault.ai. No fake
-          inbox.
+          Request a founding or managed install. The form emails tanner@kodros.ai. No fake inbox.
         </Text>
 
         <Field label="Name" value={name} onChangeText={setName} autoComplete="name" />
@@ -189,7 +127,7 @@ export default function Founding() {
           </Text>
         ) : null}
         <Text style={{ color: "#A8A8A2", marginTop: 16, fontSize: 13, lineHeight: 18 }}>
-          Or email contact@meshvault.ai. A person replies. No fake inbox.
+          Or email tanner@kodros.ai. A person replies. No fake inbox.
         </Text>
         <Text style={{ color: "#A8A8A2", marginTop: 16, fontSize: 13, lineHeight: 18 }}>
           {MESHVAULT_SELL}

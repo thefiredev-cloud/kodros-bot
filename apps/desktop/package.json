@@ -2,7 +2,7 @@
   "name": "@meshbot/desktop",
   "version": "0.1.0",
   "license": "Apache-2.0",
-  "description": "MeshVault desktop client",
+  "description": "Kodros desktop client",
   "author": "Tanner Osterkamp",
   "homepage": "https://meshvault.ai",
   "type": "module",
@@ -32,9 +32,9 @@
   },
   "build": {
     "appId": "ai.meshvault.desktop",
-    "productName": "MeshVault",
+    "productName": "Kodros",
     "executableName": "meshvault",
-    "artifactName": "MeshVault-${version}-${platform}-${arch}.${ext}",
+    "artifactName": "Kodros-${version}-${platform}-${arch}.${ext}",
     "copyright": "Copyright (c) 2026 Tanner Osterkamp. Apache-2.0.",
     "publish": null,
     "directories": {
@@ -68,14 +68,14 @@
       "oneClick": false,
       "perMachine": false,
       "allowToChangeInstallationDirectory": true,
-      "shortcutName": "MeshVault"
+      "shortcutName": "Kodros"
     },
     "linux": {
       "icon": "assets/icon.png",
       "category": "Network",
       "maintainer": "Tanner Osterkamp",
       "vendor": "Tanner Osterkamp",
-      "synopsis": "MeshVault desktop client",
+      "synopsis": "Kodros desktop client",
       "target": [
         "AppImage",
         "deb"

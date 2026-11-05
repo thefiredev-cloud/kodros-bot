@@ -30,7 +30,7 @@ export default function Layout() {
           contentStyle: { backgroundColor: "#000" },
         }}
       >
-        <Stack.Screen name="index" options={{ headerShown: false, title: "MeshVault" }} />
+        <Stack.Screen name="index" options={{ headerShown: false, title: "Kodros" }} />
         <Stack.Screen name="sign-in" options={{ headerShown: false }} />
         <Stack.Screen
           name="founding"
@@ -54,7 +54,6 @@ export default function Layout() {
         <Stack.Screen name="bot" options={{ title: "Identity" }} />
         <Stack.Screen name="routines" options={{ title: "Routines" }} />
         <Stack.Screen name="computer" options={{ title: "Computer" }} />
-        <Stack.Screen name="commerce" options={{ title: "Skills pack" }} />
       </Stack>
     </ThemeProvider>
   );

@@ -22,18 +22,17 @@ export const DEVICE_CODE_PROVIDERS: Record<
     loginLabel: "Sign in with ChatGPT Plus/Pro",
     hint: "ChatGPT Plus/Pro",
     billing:
-      "Sign in with ChatGPT Plus or Pro. Uses your OpenAI subscription. MeshVault does not pay.",
+      "Sign in with ChatGPT Plus or Pro. Uses your OpenAI subscription. Kodros does not pay.",
   },
   [COPILOT_OAUTH_PROVIDER]: {
     loginLabel: "Sign in with GitHub Copilot",
     hint: "Copilot",
-    billing: "Sign in with GitHub Copilot. Uses your Copilot subscription. MeshVault does not pay.",
+    billing: "Sign in with GitHub Copilot. Uses your Copilot subscription. Kodros does not pay.",
   },
   [XAI_OAUTH_PROVIDER]: {
     loginLabel: "Sign in with SuperGrok or X Premium",
     hint: "SuperGrok / key",
-    billing:
-      "Sign in with SuperGrok or X Premium, or paste an xAI API key. MeshVault does not pay.",
+    billing: "Sign in with SuperGrok or X Premium, or paste an xAI API key. Kodros does not pay.",
   },
 };
 

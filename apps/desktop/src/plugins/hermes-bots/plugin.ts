@@ -1,5 +1,5 @@
 /**
- * Hermes Bot Mode plugin for MeshVault desktop.
+ * Hermes Bot Mode plugin for Kodros desktop.
  * Contract and behavior from NousResearch/hermes-agent hermes-bots. MIT © Nous Research.
  */
 
