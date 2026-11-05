@@ -55,4 +55,4 @@ The product path is **Hermes + Docker + Graphile**. Default models are **Qwen** 
 | Address | Use for |
 | --- | --- |
 | GitHub Security Advisories on [thefiredev-cloud/meshvault-bot](https://github.com/thefiredev-cloud/meshvault-bot) | Vulnerabilities — see [SECURITY.md](SECURITY.md) |
-| [tanner@meshvault.ai](mailto:tanner@meshvault.ai) | Maintainer |
+| [tanner@kodros.ai](mailto:tanner@kodros.ai) | Maintainer |
