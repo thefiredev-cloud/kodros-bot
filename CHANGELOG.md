@@ -10,16 +10,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - The product is now named Kodros in the web, Expo, and desktop apps, the marketing site, and the docs. Identifiers such as package names, the `meshvault://` pairing scheme, bundle IDs, and the meshvault.ai host are unchanged.
 - Action architecture is now OpenBot (CopilotKit/openbot, MIT, AG-UI): one gateway decides, audits, then acts. Hermes Agent + Bot Mode remains the in-process runtime. Electron, Expo, and Kodros branding stay. CopilotKit Intelligence is not required.
-- Mesh Bot now runs on the Hermes Agent + Bot Mode spine (Nous Research hermes-agent v0.20.4, MIT), vendored in-tree. Default `AGENT_RUNTIME=hermes`. Qwen / DeepSeek / `MESHBOT_GATEWAY_*`, Expo iOS, and Electron stay.
+- Kodros Bot now runs on the Hermes Agent + Bot Mode spine (Nous Research hermes-agent v0.20.4, MIT), vendored in-tree. Default `AGENT_RUNTIME=hermes`. Qwen / DeepSeek / `MESHBOT_GATEWAY_*`, Expo iOS, and Electron stay.
 - User-facing copy now states the Kodros sell: Kodros is the model plus the application plus compute. That is the company, the offer, and the message.
-- Renamed the shipped product and workspace scope to Mesh Bot and `@meshbot/*`. Required upstream attribution remains in `UPSTREAM.md` and `NOTICE`.
+- Renamed the workspace scope to `@meshbot/*` (an internal package name; the product name is Kodros). Required upstream attribution remains in `UPSTREAM.md` and `NOTICE`.
 - Default model path is Qwen (DashScope / compatible OpenAI API) via `QWEN_API_KEY` / `DASHSCOPE_API_KEY` and optional `QWEN_BASE_URL` / `DASHSCOPE_BASE_URL`. OpenRouter and the rest of the Pi catalog remain.
 - Deployment-owned local models use the explicit `MESHBOT_GATEWAY_*` OpenAI-compatible lane; DGX Spark and ASUS GX10 remain separate inference hosts.
 
 ### Added
 
 - `@meshbot/gateway`: fail-closed policy, audit redaction, and decide-then-act for computer actions. Executor `shell` is the first wired path. Rows land in Postgres `action_audits`.
-- Hermes Bot Mode protocol in Mesh Bot: named Bots roster, routines namespaced per bot, and `message_bot` / `@mention` handoff with Hermes attribution.
+- Hermes Bot Mode protocol in Kodros Bot: named Bots roster, routines namespaced per bot, and `message_bot` / `@mention` handoff with Hermes attribution.
 - Electron Hermes Bot Mode: a local Bots roster with canonical Bot Chats, session workspace, hide/unhide, and search, ported from NousResearch/hermes-agent `apps/desktop/src/plugins/hermes-bots`. Open it from Kodros → Bot Mode or the connection screen. iOS/Expo is unchanged.
 - Founding-install lead form in the web/Electron sidebar and the Expo account menu. The Apache-2.0 self-hosted runtime stays free; native Mac and iPhone clients are in development and are not released.
 - Electron first-run: Docker (default) or this Mac. This Mac runs the bot shell as you, with working directories under your home folder. macOS does not show its own permission dialog; the consent is Mesh Bot's. The choice is owner-only and is refused when `SANDBOX_PROVIDER` is not `docker` (so E2B and test fakes cannot enable it).

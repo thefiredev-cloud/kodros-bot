@@ -44,7 +44,7 @@ export function hermesChatArgv(input: {
 }
 
 /**
- * Mesh Bot spine: Hermes Agent + Bot Mode.
+ * Kodros Bot spine: Hermes Agent + Bot Mode.
  * Live model tokens still use the Kodros Qwen / DeepSeek / gateway catalog
  * (the existing Pi client) so we never invent Nous Portal keys.
  */

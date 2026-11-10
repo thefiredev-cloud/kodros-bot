@@ -205,7 +205,7 @@ export function inferScript(
         toolCalls: [
           {
             name: "destination.write",
-            args: { collection: "notes", title: "Mesh Bot result", body: prompt },
+            args: { collection: "notes", title: "Kodros Bot result", body: prompt },
           },
         ],
         complete: true,

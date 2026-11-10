@@ -5,7 +5,7 @@ Front-load planning. If implementation fails, revise this file and retry. Do not
 
 ## Goal
 
-Add Mesh Bot agent rituals and a short planning template without mulch/seeds or new product features.
+Add Kodros Bot agent rituals and a short planning template without mulch/seeds or new product features.
 
 ## Decompose
 
@@ -91,14 +91,14 @@ Empty — first pass.
 ## macOS remote client subtask
 
 - [x] Replace the packaged `:5173` fallback with a bundled server connection screen.
-- [x] Validate and persist one same-origin Mesh Bot web endpoint; require HTTPS outside loopback.
+- [x] Validate and persist one same-origin Kodros Bot web endpoint; require HTTPS outside loopback.
 - [x] Keep `MESHBOT_WEB_URL` as the explicit startup override and allow failed/saved servers to be changed.
 - [x] Prove origin validation and persistence with one focused test.
 - [x] Pass desktop checks and produce an inspected unsigned ARM64 DMG without signing discovery.
 
 ## Product name truth subtask
 
-- [x] Use Mesh Bot on shipped UI, public docs, issue forms, runtime messages, and generated metadata.
+- [x] Use Kodros Bot on shipped UI, public docs, issue forms, runtime messages, and generated metadata.
 - [x] Make current mobile requests emit `meshbot://` while retaining inbound `meshvault://` compatibility.
 - [x] Preserve thefiredev-cloud, canonical domains, repository paths, and upstream attribution.
 - [x] Add one focused brand regression and pass lint, all 19 checks, all 4 builds, and `verify:fast`.
@@ -189,10 +189,10 @@ Empty — first pass.
 - [x] Vendor Nous Research hermes-agent v0.20.4 (tag `v2026.8.18`) including Bot Mode (`apps/desktop/src/plugins/hermes-bots`) under `vendor/hermes-agent`.
 - [x] Take MIT skill-improve pieces from hermes-agent-self-evolution; skip AGPL Darwinian code.
 - [x] Make Hermes the product agent spine (`AGENT_RUNTIME=hermes`); keep Pi as `AGENT_RUNTIME=pi` and scripted for tests.
-- [x] Ship Bot Mode in Mesh Bot: named roster, routines namespace, bot-to-bot `message_bot` with Hermes attribution.
+- [x] Ship Bot Mode in Kodros Bot: named roster, routines namespace, bot-to-bot `message_bot` with Hermes attribution.
 - [x] Keep Kodros sell, Qwen/DeepSeek/gateway, Expo, and Electron.
 - [x] Attribute Nous Research / hermes-agent (MIT) in NOTICE, UPSTREAM, and README.
-- [x] Pass `pnpm verify:fast` and open one PR to main titled Mesh Bot on Hermes + Bot Mode.
+- [x] Pass `pnpm verify:fast` and open one PR to main titled Kodros Bot on Hermes + Bot Mode.
 
 ## Hermes spine rebase after #17 subtask
 
