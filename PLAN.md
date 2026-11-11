@@ -1,3 +1,5 @@
+> Status 2026-11-10: this file is the plan template and a log of finished subtasks (every box below is checked). It is not a list of open work. Open work is tracked in pull requests and `CHANGELOG.md`.
+
 # Plan
 
 Loop: **plan → decompose → validate → repeat**.
