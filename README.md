@@ -6,9 +6,9 @@ Kodros is the model plus the application plus compute. That is the company, the 
 
 **Who it is for.** Developers who run the bot application themselves. It is not a hosted product and has no Kodros-run service.
 
-**Status (2026-11-10).** Beta, in active build (`PRODUCT.md`). Version 0.1.0 (`package.json`, workspace name `meshbot`). Private repository, forked from `elie222/rakazo`; see the fork note below.
+**Status (2026-11-10).** Beta, in active build (`PRODUCT.md`). Version 0.1.0 (`package.json`, workspace name `meshbot`). Public GitHub repository (checked 2026-11-10), a fork of `elie222/rakazo`; see the fork note below.
 
-**Where it runs.** On your own computer or server: web, Electron desktop (macOS) and Expo iOS clients over one API. Node.js 22 or later, pnpm 9, Docker for Postgres and the bot computer.
+**Where it runs.** On your own computer or server: web, Electron desktop and Expo iOS clients over one API. Node.js 22 or later, pnpm 9, Docker for Postgres and the bot computer.
 
 **Build and test.** `pnpm install`, then `pnpm verify:fast` (unit tests) or `pnpm verify` (the full gate). CI is `.github/workflows/ci.yml`. Run steps are under "Run locally (web)". Not run for this documentation sync.
 
