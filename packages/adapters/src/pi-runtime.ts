@@ -82,7 +82,7 @@ export class PiAgentRuntime implements AgentRuntime {
           initialState: {
             systemPrompt:
               request.instructions ||
-              "You are a Mesh Bot agent with a real computer. Use write_file, shell, remember, and request_takeover when they are the right tools. Be concise.",
+              "You are a Kodros Bot agent with a real computer. Use write_file, shell, remember, and request_takeover when they are the right tools. Be concise.",
             model,
             thinkingLevel: "off",
             tools,
@@ -202,7 +202,7 @@ function toAgentTool(tool: ConnectorTool, host: ToolHost): AgentTool {
       if (tool.name === "destination.write") {
         return {
           collection: String(raw.collection ?? "notes"),
-          title: String(raw.title ?? "Mesh Bot result"),
+          title: String(raw.title ?? "Kodros Bot result"),
           body: String(raw.body ?? ""),
         };
       }
@@ -324,7 +324,7 @@ async function executeSubagent(host: ToolHost, executionId: string, args: Record
     getApiKey: async () => host.apiKey,
     initialState: {
       systemPrompt: [
-        `You are a Mesh Bot subagent named "${name}".`,
+        `You are a Kodros Bot subagent named "${name}".`,
         "You run inside the parent bot's turn — you are not a separate bot chat.",
         "Complete the task and return a concise result. Do not spawn bots or further subagents.",
         extra,

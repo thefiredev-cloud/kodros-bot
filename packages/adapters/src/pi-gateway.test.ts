@@ -3,7 +3,7 @@ import { builtinModels } from "@earendil-works/pi-ai/providers/all";
 import { describe, it } from "vitest";
 import { GATEWAY_PROVIDER_ID, gatewayConfigFromEnv, registerGateway } from "./pi-gateway.js";
 
-describe("pi-gateway: Mesh Bot fleet gateway provider", () => {
+describe("pi-gateway: Kodros Bot fleet gateway provider", () => {
   it("is unconfigured without a URL and registers nothing", () => {
     assert.equal(gatewayConfigFromEnv({}), null);
     assert.equal(gatewayConfigFromEnv({ MESHBOT_GATEWAY_URL: "  " }), null);

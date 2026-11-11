@@ -13,4 +13,4 @@ Not taken:
 
 - `evolution/code` Darwinian evolver path (upstream marks Darwinian Evolver as AGPL v3, external CLI only)
 
-Mesh Bot ports the MIT skill-improve gates (size, no mid-conversation mutation, semantic purpose) in TypeScript. This snapshot does not run DSPy/GEPA and does not invent API keys.
+Kodros Bot ports the MIT skill-improve gates (size, no mid-conversation mutation, semantic purpose) in TypeScript. This snapshot does not run DSPy/GEPA and does not invent API keys.

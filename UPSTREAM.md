@@ -4,7 +4,7 @@ This repository is derived from [elie222/rakazo](https://github.com/elie222/raka
 
 Rakazo is licensed under Apache License 2.0. The upstream `LICENSE` file and Git history are retained. thefiredev-cloud began modifying this derivative on 2026-08-13.
 
-Mesh Bot changes include product identity, package scopes, local protocol names, container identity, model routing, a bounded Brain surface, personal Composio OAuth, build coverage, and release hardening. The original name remains only in this provenance record, `NOTICE`, `LICENSE`, and retained Git history.
+Kodros Bot changes include product identity, package scopes, local protocol names, container identity, model routing, a bounded Brain surface, personal Composio OAuth, build coverage, and release hardening. The original name remains only in this provenance record, `NOTICE`, `LICENSE`, and retained Git history.
 
 Kodros is not affiliated with or endorsed by xAI. Do not reverse-engineer Grok Bot. Do not clone Grok Bot. Grok Bot is not an architecture source.
 
@@ -14,11 +14,11 @@ Kodros Bot's action architecture is [CopilotKit/openbot](https://github.com/Copi
 
 The implementation is Kodros-owned (`@meshbot/gateway`, Prisma `action_audits`). OpenBot files were not vendored. CopilotKit Intelligence and `COPILOTKIT_LICENSE_TOKEN` are not required. Threads and memory stay in this repo's PostgreSQL. CopilotKit is not affiliated with Kodros.
 
-Expo Bot Mode roster, identity, and routines adapt concepts from [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) Bot Mode (`apps/desktop/src/plugins/hermes-bots`) onto the existing Mesh Bot API.
+Expo Bot Mode roster, identity, and routines adapt concepts from [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) Bot Mode (`apps/desktop/src/plugins/hermes-bots`) onto the existing Kodros Bot API.
 
 ## Hermes Agent
 
-Mesh Bot's agent spine is [Nous Research / hermes-agent](https://github.com/NousResearch/hermes-agent) **v0.20.4** (git tag `v2026.8.18`, commit `e624e9fde561e1add9388384012b295fde669ade`), MIT License. The snapshot is `vendor/hermes-agent`, including Desktop Bot Mode at `apps/desktop/src/plugins/hermes-bots`. The archived [Hermes-Bot-Mode](https://github.com/NousResearch/Hermes-Bot-Mode) repo is a reference only.
+Kodros Bot's agent spine is [Nous Research / hermes-agent](https://github.com/NousResearch/hermes-agent) **v0.20.4** (git tag `v2026.8.18`, commit `e624e9fde561e1add9388384012b295fde669ade`), MIT License. The snapshot is `vendor/hermes-agent`, including Desktop Bot Mode at `apps/desktop/src/plugins/hermes-bots`. The archived [Hermes-Bot-Mode](https://github.com/NousResearch/Hermes-Bot-Mode) repo is a reference only.
 
 Useful MIT skill-improve pieces come from [hermes-agent-self-evolution](https://github.com/NousResearch/hermes-agent-self-evolution) commit `0a929e3aa20e15cf04dc7c28492a7d41a5139125`. Darwinian Evolver (AGPL) is not vendored.
 

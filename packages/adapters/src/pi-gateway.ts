@@ -1,6 +1,6 @@
 // Modified by thefiredev-cloud on 2026-08-14.
 //
-// Mesh Bot fleet gateway provider. The site promises "point a bot at Claude,
+// Kodros Bot fleet gateway provider. The site promises "point a bot at Claude,
 // GPT, Grok, or a local model"; this is the local-model lane. Any
 // OpenAI-completions-compatible endpoint works: LiteLLM, Ollama, LM Studio,
 // vLLM. Configured by env so a deployment owner never pastes a key into a
@@ -37,13 +37,13 @@ export function gatewayConfigFromEnv(
 }
 
 export function gatewayProvider(config: GatewayConfig) {
-  const apiKeyAuth = envApiKeyAuth("Mesh Bot gateway key", [
+  const apiKeyAuth = envApiKeyAuth("Kodros Bot gateway key", [
     "MESHBOT_GATEWAY_KEY",
     "LITELLM_MASTER_KEY",
   ]);
   return createProvider({
     id: GATEWAY_PROVIDER_ID,
-    name: "Mesh Bot Gateway",
+    name: "Kodros Bot Gateway",
     baseUrl: config.baseUrl,
     auth: {
       apiKey: {
@@ -51,7 +51,7 @@ export function gatewayProvider(config: GatewayConfig) {
         resolve: async (input) =>
           (await apiKeyAuth.resolve(input)) ?? {
             auth: {},
-            source: "configured Mesh Bot gateway",
+            source: "configured Kodros Bot gateway",
           },
       },
     },

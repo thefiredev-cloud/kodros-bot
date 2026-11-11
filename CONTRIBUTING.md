@@ -1,6 +1,6 @@
-# Contributing to Mesh Bot
+# Contributing to Kodros Bot
 
-Thanks for helping improve Mesh Bot. Keep changes focused and testable.
+Thanks for helping improve Kodros Bot. Keep changes focused and testable.
 
 Keep the product architecture: Electron desktop, Expo iOS, Hermes Agent + Bot Mode runtime, OpenBot action gateway (decide-then-act, fail-closed policy, per-bot computer, AG-UI, audit, take-the-wheel), and Docker/E2B computers. Do not reverse-engineer Grok Bot. See [`UPSTREAM.md`](UPSTREAM.md) and [`NOTICE`](NOTICE) for required provenance.
 
@@ -39,9 +39,9 @@ CI runs `pnpm lint`, `pnpm check`, and `pnpm verify:fast` on every PR.
 - **Never** paste API keys, tokens, or passwords in issues or PRs.
 - Use placeholders in examples (`your-qwen-key`, `your-openrouter-key`, etc.).
 
-The product path is **Hermes + Docker + Graphile**. Default models are **Qwen** (DashScope / compatible OpenAI API); deployment-owned local models use the explicit Mesh Bot gateway. `AGENT_RUNTIME=pi` remains the pre-Hermes loop. Emulator settings (`AGENT_RUNTIME=scripted`, `SANDBOX_PROVIDER=fake`, `WAKEUP_DRIVER=memory`) are for tests only.
+The product path is **Hermes + Docker + Graphile**. Default models are **Qwen** (DashScope / compatible OpenAI API); deployment-owned local models use the explicit Kodros Bot gateway. `AGENT_RUNTIME=pi` remains the pre-Hermes loop. Emulator settings (`AGENT_RUNTIME=scripted`, `SANDBOX_PROVIDER=fake`, `WAKEUP_DRIVER=memory`) are for tests only.
 
-**Plugins** integrate through personal Composio OAuth at its fixed remote MCP endpoint. Mesh Bot does not ship a Git- or MCP-based plugin marketplace.
+**Plugins** integrate through personal Composio OAuth at its fixed remote MCP endpoint. Kodros Bot does not ship a Git- or MCP-based plugin marketplace.
 
 ## Pull requests
 

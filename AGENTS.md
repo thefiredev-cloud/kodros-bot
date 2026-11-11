@@ -1,4 +1,4 @@
-# Mesh Bot — agent brief
+# Kodros Bot — agent brief
 
 Kodros product on a Hermes Agent + Bot Mode spine. Electron desktop + Expo iOS. BYO model. Default: Qwen (DashScope / OpenAI-compatible); deployment-owned local models use the explicit `MESHBOT_GATEWAY_*` lane. Packages use `@meshbot/*`; upstream and license records live in `UPSTREAM.md`, `NOTICE`, and `LICENSE`.
 
