@@ -164,7 +164,7 @@ app.whenReady().then(() => {
     applicationVersion: app.getVersion(),
     copyright: "Copyright (c) 2026 Tanner Osterkamp",
     credits: MESHVAULT_SELL,
-    website: "https://meshvault.ai",
+    website: "https://kodros.ai",
   });
   const icon = developmentIcon();
   if (process.platform === "darwin" && icon) app.dock?.setIcon(icon);
