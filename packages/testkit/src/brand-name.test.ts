@@ -55,14 +55,14 @@ describe("Kodros sell", () => {
     if (file !== "README.md") expect(source).not.toMatch(/\b(?:Rakazo|Razko)\b/);
   });
 
-  it.each(nameSurfaces)("uses Kodros and no MeshVault on %s", (file) => {
+  it.each(nameSurfaces)("uses Kodros and not the old brand name on %s", (file) => {
     const source = readFileSync(path.resolve(file), "utf8");
     expect(source).toMatch(/\bKodros\b/);
     expect(source).not.toMatch(/\bMeshVault\b/);
     expect(source).not.toMatch(/\b(?:Rakazo|Razko|Kodros Bot)\b/i);
   });
 
-  it.each(sellSurfaces)("shows no MeshVault product name on %s", (file) => {
+  it.each(sellSurfaces)("shows no old brand name on %s", (file) => {
     const source = readFileSync(path.resolve(file), "utf8");
     expect(source).not.toMatch(/\bMeshVault\b/);
   });
