@@ -7,7 +7,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        For **security vulnerabilities**, use [GitHub Security Advisories](https://github.com/thefiredev-cloud/meshvault-bot/security/advisories/new) — do not use this form. See [SECURITY.md](https://github.com/thefiredev-cloud/meshvault-bot/blob/main/SECURITY.md).
+        For **security vulnerabilities**, use [GitHub Security Advisories](https://github.com/thefiredev-cloud/kodros-bot/security/advisories/new), not this form. See [SECURITY.md](https://github.com/thefiredev-cloud/kodros-bot/blob/main/SECURITY.md).
 
   - type: checkboxes
     id: not-security

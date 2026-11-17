@@ -54,5 +54,5 @@ The product path is **Hermes + Docker + Graphile**. Default models are **Qwen** 
 
 | Address | Use for |
 | --- | --- |
-| GitHub Security Advisories on [thefiredev-cloud/meshvault-bot](https://github.com/thefiredev-cloud/meshvault-bot) | Vulnerabilities — see [SECURITY.md](SECURITY.md) |
+| GitHub Security Advisories on [thefiredev-cloud/kodros-bot](https://github.com/thefiredev-cloud/kodros-bot) | Vulnerabilities: see [SECURITY.md](SECURITY.md) |
 | [tanner@kodros.ai](mailto:tanner@kodros.ai) | Maintainer |
