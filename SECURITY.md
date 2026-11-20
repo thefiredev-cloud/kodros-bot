@@ -2,7 +2,7 @@
 
 ## Reporting vulnerabilities
 
-Use **GitHub Security Advisories** on [thefiredev-cloud/meshvault-bot](https://github.com/thefiredev-cloud/meshvault-bot/security/advisories/new), or email **tanner@kodros.ai**. Do not open public GitHub issues for security bugs.
+Use **GitHub Security Advisories** on [thefiredev-cloud/kodros-bot](https://github.com/thefiredev-cloud/kodros-bot/security/advisories/new), or email **tanner@kodros.ai**. Do not open public GitHub issues for security bugs.
 
 Please include:
 

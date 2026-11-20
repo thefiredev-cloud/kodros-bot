@@ -7,9 +7,9 @@ body:
   - type: markdown
     attributes:
       value: |
-        For **security vulnerabilities**, use [GitHub Security Advisories](https://github.com/thefiredev-cloud/meshvault-bot/security/advisories/new). See [SECURITY.md](https://github.com/thefiredev-cloud/meshvault-bot/blob/main/SECURITY.md).
+        For **security vulnerabilities**, use [GitHub Security Advisories](https://github.com/thefiredev-cloud/kodros-bot/security/advisories/new). See [SECURITY.md](https://github.com/thefiredev-cloud/kodros-bot/blob/main/SECURITY.md).
 
-        Setup steps are in [README.md](https://github.com/thefiredev-cloud/meshvault-bot/blob/main/README.md). Do not paste `.env` contents or API keys.
+        Setup steps are in [README.md](https://github.com/thefiredev-cloud/kodros-bot/blob/main/README.md). Do not paste `.env` contents or API keys.
 
   - type: dropdown
     id: step
