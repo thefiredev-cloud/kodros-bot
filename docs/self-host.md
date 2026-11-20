@@ -8,7 +8,16 @@ Desktop is Electron. Mobile is the existing Expo iOS app. License and provenance
 
 ## Local (source checkout)
 
-Same as the README quick start: `.env` from `.env.example`, Postgres via Compose, `pnpm sandbox:build`, `pnpm dev`, then [http://127.0.0.1:5173](http://127.0.0.1:5173). Electron: `pnpm --filter @meshbot/desktop dev` while that stack is up.
+Same as the README quick start. On a clean clone the install, Prisma client generation and migration steps are required; `pnpm dev` alone fails without them:
+
+```bash
+cp .env.example .env    # set BETTER_AUTH_SECRET and ENCRYPTION_KEY
+docker compose -f infra/compose/docker-compose.yml up postgres -d
+pnpm install && pnpm db:generate && pnpm db:migrate && pnpm sandbox:build
+pnpm dev                # API :3100, worker, web :5173, sandbox supervisor :7091
+```
+
+Then open [http://127.0.0.1:5173](http://127.0.0.1:5173). Electron: `pnpm --filter @meshbot/desktop dev` while that stack is up.
 
 ## Docker Compose (single machine)
 
@@ -83,7 +92,7 @@ Pull the new source, run `pnpm --filter @meshbot/db migrate`, then restart API a
 
 ## What “Kodros Cloud” still needs
 
-`apps/www` (Astro, `output: "static"`, `site: https://meshvault.ai`) can go live today on Vercel, Cloudflare Pages, or any static host. The waitlist link is `mailto:tanner@meshvault.ai`. That is the marketing site, not the product.
+`apps/www` (Astro, `output: "static"`, `site: https://meshvault.ai`) can go live today on Vercel, Cloudflare Pages, or any static host. The waitlist link is `mailto:tanner@kodros.ai` (`apps/www/src/site.ts`). That is the marketing site, not the product.
 
 The product cannot be “pushed live” as a Vercel serverless app. Graphile Worker, Postgres `LISTEN`, Pi runs, and Docker computers need durable processes and a sandbox host.
 
