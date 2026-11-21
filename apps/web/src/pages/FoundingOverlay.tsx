@@ -60,7 +60,7 @@ export function FoundingPanel() {
       >
         <div className="text-[15.5px] font-medium text-[#ECECEE]">Managed install</div>
         <p className="mt-1.5 text-[13.5px] leading-relaxed text-[#7A7A80]">
-          Managed install on hardware you own, quoted after a short audit. The runtime stays yours.
+          Managed install on a computer you own, quoted after a short audit. The runtime stays yours.
           If the form cannot send, it falls back to {MESHVAULT_CONTACT_EMAIL}.
         </p>
         <label className="mt-3 block text-[13px] text-[#85858A]">
