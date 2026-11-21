@@ -178,7 +178,11 @@ export function evaluateExpression(source: string, context: PolicyContext): bool
     let left = parseAnd();
     while (peek()?.kind === "or") {
       take();
-      left = Boolean(left) || Boolean(parseAnd());
+      // Parse the right operand unconditionally: `Boolean(left) || parseAnd()`
+      // short-circuits when left is truthy and leaves its tokens unconsumed,
+      // which made every `true or …` expression throw.
+      const right = parseAnd();
+      left = Boolean(left) || Boolean(right);
     }
     return left;
   };
@@ -187,7 +191,9 @@ export function evaluateExpression(source: string, context: PolicyContext): bool
     let left = parseComparison();
     while (peek()?.kind === "and") {
       take();
-      left = Boolean(left) && Boolean(parseComparison());
+      // Same reason as parseOr: `&&` short-circuits on a falsy left operand.
+      const right = parseComparison();
+      left = Boolean(left) && Boolean(right);
     }
     return left;
   };
