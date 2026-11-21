@@ -93,7 +93,7 @@ export default function Founding() {
           value={notes}
           onChangeText={setNotes}
           multiline
-          placeholder="Hardware, team size, what you want installed"
+          placeholder="Computer, team size, what you want installed"
         />
 
         <Pressable
