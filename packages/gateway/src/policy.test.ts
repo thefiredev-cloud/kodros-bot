@@ -87,4 +87,25 @@ describe("policy expressions", () => {
     expect(evaluateExpression("repeat.count >= 10", context)).toBe(false);
     expect(evaluateExpression('tool.name == "write_file" || false', context)).toBe(false);
   });
+
+  it("evaluates both operands of && and || regardless of the left side", () => {
+    // A truthy left operand used to short-circuit `||` and a falsy left
+    // operand used to short-circuit `&&`, leaving tokens unconsumed so the
+    // whole expression threw "unexpected tokens in policy expression".
+    expect(evaluateExpression("true || false", context)).toBe(true);
+    expect(evaluateExpression("true || true", context)).toBe(true);
+    expect(evaluateExpression("false && true", context)).toBe(false);
+    expect(evaluateExpression("false && false", context)).toBe(false);
+    expect(evaluateExpression('true || tool.name == "shell"', context)).toBe(true);
+    expect(evaluateExpression('false && tool.name == "shell"', context)).toBe(false);
+  });
+
+  it("permits an action whose allow rule is decided by the left operand", () => {
+    const decision = evaluateActionPolicy(
+      { mode: "enforce", deny: [], allow: ['repeat.count > 5 || tool.name == "shell"'] },
+      context,
+    );
+    expect(decision.allowed).toBe(true);
+    expect(decision.source).toBe("allow");
+  });
 });
